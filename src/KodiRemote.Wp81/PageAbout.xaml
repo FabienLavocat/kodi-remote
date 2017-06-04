@@ -193,7 +193,7 @@
             </Button>
 
             <Button Style="{StaticResource HorizontalButtonStyle}"
-                    Click="Twitter_Button_Click">
+                    Click="GitHub_Button_Click">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
@@ -202,12 +202,11 @@
                     </Grid.ColumnDefinitions>
                     <Border Height="40"
                             Width="40"
-                            Background="#1DA1F2"
                             CornerRadius="12">
-                        <Image Source="/Assets/appbar.twitter.bird.png" />
+                        <Image Source="/Assets/appbar.github.png" />
                     </Border>
                     <TextBlock Grid.Column="1"
-                               Text="@FabienLavocat"
+                               Text="GitHub Project"
                                VerticalAlignment="Center"
                                Margin="10,0" />
                     <TextBlock Grid.Column="2"
@@ -234,6 +233,32 @@
                     </Border>
                     <TextBlock Grid.Column="1"
                                Text="Facebook Page"
+                               VerticalAlignment="Center"
+                               Margin="10,0" />
+                    <TextBlock Grid.Column="2"
+                               FontFamily="Segoe UI Symbol"
+                               Text="&#xe23a;"
+                               Foreground="#C7C7C7"
+                               VerticalAlignment="Center" />
+                </Grid>
+            </Button>
+
+            <Button Style="{StaticResource HorizontalButtonStyle}"
+                    Click="Twitter_Button_Click">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Border Height="40"
+                            Width="40"
+                            Background="#1DA1F2"
+                            CornerRadius="12">
+                        <Image Source="/Assets/appbar.twitter.bird.png" />
+                    </Border>
+                    <TextBlock Grid.Column="1"
+                               Text="@FabienLavocat"
                                VerticalAlignment="Center"
                                Margin="10,0" />
                     <TextBlock Grid.Column="2"

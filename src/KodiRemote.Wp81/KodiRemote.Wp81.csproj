@@ -431,6 +431,7 @@
     <Content Include="Assets\appbar.add.png" />
     <Content Include="Assets\appbar.control.play.png" />
     <Content Include="Assets\appbar.facebook.png" />
+    <Content Include="Assets\appbar.github.png" />
     <Content Include="Assets\appbar.imdb.png" />
     <Content Include="Assets\appbar.layer.delete.png" />
     <Content Include="Assets\appbar.save.png" />

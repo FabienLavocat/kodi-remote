@@ -42,12 +42,12 @@ namespace KodiRemote.Wp81
 
         private void Blog_Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            OpenWebBrowser("http://www.fabienlavocat.com");
+            OpenWebBrowser("https://www.fabienlavocat.com");
         }
 
         private void Download_Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            OpenWebBrowser("http://www.kodi.tv");
+            OpenWebBrowser("https://kodi.tv/");
         }
 
         private void Review_Button_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -61,19 +61,24 @@ namespace KodiRemote.Wp81
             {
                 Title = AppResources.ApplicationTitle,
                 Message = AppResources.Page_About_Share_Message,
-                LinkUri = new Uri("http://www.windowsphone.com/s?appid=7cdb0b87-1e00-4328-b839-43a6bf9c8556", UriKind.Absolute)
+                LinkUri = new Uri("https://www.windowsphone.com/s?appid=7cdb0b87-1e00-4328-b839-43a6bf9c8556", UriKind.Absolute)
             };
             slt.Show();
         }
 
         private void Twitter_Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            OpenWebBrowser("http://twitter.com/FabienLavocat");
+            OpenWebBrowser("https://twitter.com/FabienLavocat");
         }
 
         private void Facebook_Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             OpenWebBrowser("https://www.facebook.com/mediacenterremote/");
+        }
+
+        private void GitHub_Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            OpenWebBrowser("https://github.com/FabienLavocat/kodi-remote");
         }
     }
 }
