@@ -1,0 +1,61 @@
+﻿<phone:PhoneApplicationPage x:Class="KodiRemote.Wp81.Movies.PageMovies"
+                            x:Name="Page"
+                            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+                            xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                            xmlns:movies="clr-namespace:KodiRemote.Wp81.Movies"
+                            xmlns:core="clr-namespace:KodiRemote.Wp81.Core"
+                            mc:Ignorable="d"
+                            SupportedOrientations="Portrait"
+                            Orientation="Portrait"
+                            shell:SystemTray.IsVisible="True"
+                            shell:SystemTray.BackgroundColor="#997AA5"
+                            shell:SystemTray.ForegroundColor="White">
+
+    <Grid Margin="0,-1,0,0"
+          Background="#EFEFF4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Background="#B38EC1"
+                BorderBrush="#22000000"
+                BorderThickness="0,0,0,2"
+                Margin="0,0,0,-2"
+                Padding="10">
+
+            <TextBlock Text="{Binding Path=LocalizedResources.Page_Movies_Title, Source={StaticResource LocalizedStrings}}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                       FontSize="28" />
+        </Border>
+
+        <phone:LongListSelector Grid.Row="1"
+                                x:Name="LstMovies"
+                                ItemsSource="{Binding Movies}"
+                                SelectionChanged="LstMovies_SelectionChanged"
+                                Style="{StaticResource MoviesGridLongListSelectorStyle}"
+                                ItemTemplate="{StaticResource MovieItemTemplate}" />
+
+        <core:LoadingIndicator Grid.Row="1"
+                               IsRunning="{Binding IsLoading, ElementName=Page}" />
+
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Mode="Default"
+                              Opacity="1.0"
+                              IsVisible="True"
+                              BackgroundColor="White"
+                              ForegroundColor="Black">
+
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

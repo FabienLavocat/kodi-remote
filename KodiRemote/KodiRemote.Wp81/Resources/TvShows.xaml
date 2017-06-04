@@ -1,0 +1,333 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <DataTemplate x:Key="TvShowItemTemplate">
+        <Grid Margin="10,10,10,0">
+
+            <Border Background="Black"
+                    Opacity=".01" />
+            <Border Background="Black"
+                    Opacity=".01"
+                    Margin="1" />
+            <Border Background="Black"
+                    Opacity=".01"
+                    Margin="2" />
+            <Border Background="Black"
+                    Opacity=".01"
+                    Margin="3" />
+            <Border Background="Black"
+                    Opacity=".01"
+                    Margin="4" />
+            <Border Background="Black"
+                    Opacity=".01"
+                    Margin="5" />
+            <Border Background="Black"
+                    Opacity=".01"
+                    Margin="6" />
+            <Border Background="Black"
+                    Opacity=".01"
+                    Margin="7" />
+            <Border Background="Black"
+                    Opacity=".01"
+                    Margin="8" />
+            <Border Background="Black"
+                    Opacity=".01"
+                    Margin="9" />
+
+            <Border Margin="10"
+                    Background="White">
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0"
+                               Foreground="Black"
+                               Text="{Binding Value.Title}"
+                               FontSize="26" />
+
+                    <TextBlock Grid.Row="1"
+                               Foreground="Gray"
+                               Text="{Binding Value.Plot, ConverterParameter=200, Converter={StaticResource ShorterStringConverter}}"
+                               TextWrapping="Wrap"
+                               FontSize="{StaticResource PhoneFontSizeSmall}"
+                               Margin="0,10,0,15" />
+
+                    <Image Grid.Row="2"
+                           Margin="-15,0">
+                        <Image.Source>
+                            <BitmapImage UriSource="{Binding Thumbnail}"
+                                         CreateOptions="BackgroundCreation,DelayCreation" />
+                        </Image.Source>
+                    </Image>
+
+                    <Border Grid.Row="3"
+                            Background="#f1f1f1"
+                            Margin="-15,0,-15,-15">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="1" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="1" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0"
+                                        Orientation="Horizontal"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Margin="5,15"
+                                        Visibility="{Binding Value.IsWatched, Converter={StaticResource BooleanToVisibilityConverter}}">
+
+                                <TextBlock FontFamily="Segoe UI Symbol"
+                                           Text="&#xE1CF;"
+                                           FontSize="16"
+                                           Foreground="#55ADEC"
+                                           VerticalAlignment="Center"
+                                           Margin="0,0,10,0" />
+
+                                <TextBlock Text="{Binding Path=LocalizedResources.Page_Tv_Shows_Watched, Source={StaticResource LocalizedStrings}}"
+                                           Foreground="#55ADEC"
+                                           FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                           FontSize="{StaticResource PhoneFontSizeSmall}" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="0"
+                                        Orientation="Horizontal"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Margin="5,15"
+                                        Visibility="{Binding Value.IsWatched, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
+
+                                <TextBlock Text="{Binding Path=LocalizedResources.Page_Tv_Shows_Not_Watched, Source={StaticResource LocalizedStrings}}"
+                                           Foreground="#b2b2b2"
+                                           FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                           FontSize="{StaticResource PhoneFontSizeSmall}" />
+                            </StackPanel>
+
+                            <Border Grid.Column="1"
+                                    Background="#C2C2C2"
+                                    Margin="0,10" />
+
+                            <Button Grid.Column="2"
+                                    Style="{StaticResource TextButtonStyle}"
+                                    CommandParameter="{Binding}"
+                                    Command="{Binding CastCommand, ElementName=Page}">
+                                <StackPanel Orientation="Horizontal"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            Margin="5,15">
+
+                                    <TextBlock FontFamily="Segoe UI Symbol"
+                                               Text="&#xE125;"
+                                               FontSize="16"
+                                               Foreground="Gray"
+                                               VerticalAlignment="Center"
+                                               Margin="0,2,10,0" />
+
+                                    <TextBlock Text="{Binding Path=LocalizedResources.Global_Cast, Source={StaticResource LocalizedStrings}}"
+                                               Foreground="#b2b2b2"
+                                               FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                               FontSize="{StaticResource PhoneFontSizeSmall}" />
+                                </StackPanel>
+                            </Button>
+
+                            <Border Grid.Column="3"
+                                    Background="#C2C2C2"
+                                    Margin="0,10" />
+
+                            <Button Grid.Column="4"
+                                    Style="{StaticResource TextButtonStyle}"
+                                    CommandParameter="{Binding}"
+                                    Command="{Binding NavigateToCommand, ElementName=Page}">
+                                <StackPanel Orientation="Horizontal"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            Margin="5,15">
+
+                                    <TextBlock FontFamily="Segoe UI Symbol"
+                                               Text="&#xE111;"
+                                               FontSize="16"
+                                               Foreground="Gray"
+                                               VerticalAlignment="Center"
+                                               Margin="0,2,10,0" />
+
+                                    <TextBlock Text="{Binding Path=LocalizedResources.Page_Tv_Shows_Seasons, Source={StaticResource LocalizedStrings}}"
+                                               Foreground="#b2b2b2"
+                                               FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                               FontSize="{StaticResource PhoneFontSizeSmall}" />
+                                </StackPanel>
+                            </Button>
+
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="TvShowItemTemplateFlat">
+        <Grid Margin="10,10,10,0">
+
+            <Border Background="Black"
+                    Opacity=".01" />
+            <Border Background="Black"
+                    Opacity=".01"
+                    Margin="1" />
+            <Border Background="Black"
+                    Opacity=".01"
+                    Margin="2" />
+            <Border Background="Black"
+                    Opacity=".01"
+                    Margin="3" />
+            <Border Background="Black"
+                    Opacity=".01"
+                    Margin="4" />
+            <Border Background="Black"
+                    Opacity=".01"
+                    Margin="5" />
+            <Border Background="Black"
+                    Opacity=".01"
+                    Margin="6" />
+            <Border Background="Black"
+                    Opacity=".01"
+                    Margin="7" />
+            <Border Background="Black"
+                    Opacity=".01"
+                    Margin="8" />
+            <Border Background="Black"
+                    Opacity=".01"
+                    Margin="9" />
+
+            <Border Margin="10"
+                    Background="White">
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0"
+                               Foreground="Black"
+                               Text="{Binding Value.Title}"
+                               FontSize="26" />
+
+                    <TextBlock Grid.Row="1"
+                               Foreground="Gray"
+                               Text="{Binding Value.Plot, ConverterParameter=200, Converter={StaticResource ShorterStringConverter}}"
+                               TextWrapping="Wrap"
+                               FontSize="{StaticResource PhoneFontSizeSmall}"
+                               Margin="0,10,0,15" />
+
+                    <Border Grid.Row="2"
+                            Background="#f1f1f1"
+                            Margin="-15,0,-15,-15">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="1" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="1" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0"
+                                        Orientation="Horizontal"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Margin="5,15"
+                                        Visibility="{Binding Value.IsWatched, Converter={StaticResource BooleanToVisibilityConverter}}">
+
+                                <TextBlock FontFamily="Segoe UI Symbol"
+                                           Text="&#xE1CF;"
+                                           FontSize="16"
+                                           Foreground="#55ADEC"
+                                           VerticalAlignment="Center"
+                                           Margin="0,0,10,0" />
+
+                                <TextBlock Text="{Binding Path=LocalizedResources.Page_Tv_Shows_Watched, Source={StaticResource LocalizedStrings}}"
+                                           Foreground="#55ADEC"
+                                           FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                           FontSize="{StaticResource PhoneFontSizeSmall}" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="0"
+                                        Orientation="Horizontal"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Margin="5,15"
+                                        Visibility="{Binding Value.IsWatched, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
+
+                                <TextBlock Text="{Binding Path=LocalizedResources.Page_Tv_Shows_Not_Watched, Source={StaticResource LocalizedStrings}}"
+                                           Foreground="#b2b2b2"
+                                           FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                           FontSize="{StaticResource PhoneFontSizeSmall}" />
+                            </StackPanel>
+
+                            <Border Grid.Column="1"
+                                    Background="#C2C2C2"
+                                    Margin="0,10" />
+
+                            <Button Grid.Column="2"
+                                    Style="{StaticResource TextButtonStyle}"
+                                    CommandParameter="{Binding}"
+                                    Command="{Binding CastCommand, ElementName=Page}">
+                                <StackPanel Orientation="Horizontal"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            Margin="5,15">
+
+                                    <TextBlock FontFamily="Segoe UI Symbol"
+                                               Text="&#xE125;"
+                                               FontSize="16"
+                                               Foreground="Gray"
+                                               VerticalAlignment="Center"
+                                               Margin="0,2,10,0" />
+
+                                    <TextBlock Text="{Binding Path=LocalizedResources.Global_Cast, Source={StaticResource LocalizedStrings}}"
+                                               Foreground="#b2b2b2"
+                                               FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                               FontSize="{StaticResource PhoneFontSizeSmall}" />
+                                </StackPanel>
+                            </Button>
+
+                            <Border Grid.Column="3"
+                                    Background="#C2C2C2"
+                                    Margin="0,10" />
+
+                            <Button Grid.Column="4"
+                                    Style="{StaticResource TextButtonStyle}"
+                                    CommandParameter="{Binding}"
+                                    Command="{Binding NavigateToCommand, ElementName=Page}">
+                                <StackPanel Orientation="Horizontal"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            Margin="5,15">
+
+                                    <TextBlock FontFamily="Segoe UI Symbol"
+                                               Text="&#xE111;"
+                                               FontSize="16"
+                                               Foreground="Gray"
+                                               VerticalAlignment="Center"
+                                               Margin="0,2,10,0" />
+
+                                    <TextBlock Text="{Binding Path=LocalizedResources.Page_Tv_Shows_Seasons, Source={StaticResource LocalizedStrings}}"
+                                               Foreground="#b2b2b2"
+                                               FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                               FontSize="{StaticResource PhoneFontSizeSmall}" />
+                                </StackPanel>
+                            </Button>
+
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>

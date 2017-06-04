@@ -1,0 +1,532 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8B41CDFB-635D-43A2-8DC2-46967A4735D4}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KodiRemote.Wp81</RootNamespace>
+    <AssemblyName>KodiRemote.Wp81</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>KodiRemote.Wp81_$(Configuration)_$(Platform).xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>KodiRemote.Wp81.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Addons\PageAddon.xaml.cs">
+      <DependentUpon>PageAddon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Addons\PageAddons.xaml.cs">
+      <DependentUpon>PageAddons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Context.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\InvertedBooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\SecondsToStringConverter.cs" />
+    <Compile Include="Converters\ShorterStringConverter.cs" />
+    <Compile Include="Converters\StatusToVisibilityConverter.cs" />
+    <Compile Include="Core\AssociationUriMapper.cs" />
+    <Compile Include="Core\ColoredProgressBar.cs" />
+    <Compile Include="Core\Command.cs" />
+    <Compile Include="Core\ConnectionStatus.cs" />
+    <Compile Include="Core\Downloads\BackgroundDownload.cs" />
+    <Compile Include="Core\Downloads\BackgroundTransfer.cs" />
+    <Compile Include="Core\Downloads\DownloadRequestState.cs" />
+    <Compile Include="Core\Downloads\EventArgsState.cs" />
+    <Compile Include="Core\Extended.cs" />
+    <Compile Include="Core\Group.cs" />
+    <Compile Include="Core\Helpers.cs" />
+    <Compile Include="Core\IsolatedStorage.cs" />
+    <Compile Include="Core\LoadingIndicator.xaml.cs">
+      <DependentUpon>LoadingIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\NotifyPropertyChanged.cs" />
+    <Compile Include="Core\TextBoxPlaceholder.xaml.cs">
+      <DependentUpon>TextBoxPlaceholder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\WriteableBitmapConvolutionExtensions.cs" />
+    <Compile Include="Core\XbmcConnection.cs" />
+    <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Movies\PageMovie.xaml.cs">
+      <DependentUpon>PageMovie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Movies\PageMovies.xaml.cs">
+      <DependentUpon>PageMovies.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Movies\PageRecentlyAdded.xaml.cs">
+      <DependentUpon>PageRecentlyAdded.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Music\PageAlbum.xaml.cs">
+      <DependentUpon>PageAlbum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Music\PageArtist.xaml.cs">
+      <DependentUpon>PageArtist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Music\PageGenre.xaml.cs">
+      <DependentUpon>PageGenre.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Music\PageMusics.xaml.cs">
+      <DependentUpon>PageMusics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageAbout.xaml.cs">
+      <DependentUpon>PageAbout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageActions.xaml.cs">
+      <DependentUpon>PageActions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageCast.xaml.cs">
+      <DependentUpon>PageCast.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PagePlaylists.xaml.cs">
+      <DependentUpon>PagePlaylists.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageRemote.xaml.cs">
+      <DependentUpon>PageRemote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageSendText.xaml.cs">
+      <DependentUpon>PageSendText.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageServers.xaml.cs">
+      <DependentUpon>PageServers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageSettings.xaml.cs">
+      <DependentUpon>PageSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageTvShows.xaml.cs">
+      <DependentUpon>PageTvShows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageWelcome.xaml.cs">
+      <DependentUpon>PageWelcome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemoteButton.cs" />
+    <Compile Include="Resources\AppResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\PageDownloads.xaml.cs">
+      <DependentUpon>PageDownloads.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\PageSettings.xaml.cs">
+      <DependentUpon>PageSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TvShows\PageEpisode.xaml.cs">
+      <DependentUpon>PageEpisode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TvShows\PageEpisodes.xaml.cs">
+      <DependentUpon>PageEpisodes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TvShows\PageTvShow.xaml.cs">
+      <DependentUpon>PageTvShow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TvShows\PageTvShows.xaml.cs">
+      <DependentUpon>PageTvShows.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="Addons\PageAddon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Addons\PageAddons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Core\LoadingIndicator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Core\TextBoxPlaceholder.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Movies\PageMovie.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Movies\PageMovies.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Movies\PageRecentlyAdded.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Music\PageAlbum.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Music\PageArtist.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Music\PageGenre.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Music\PageMusics.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageAbout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageActions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageCast.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PagePlaylists.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageRemote.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageSendText.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageServers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageTvShows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageWelcome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Converters.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\LongListSelector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Main.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Movies.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Remote.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\TvShows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Welcome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Settings\PageDownloads.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Settings\PageSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TvShows\PageEpisode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TvShows\PageEpisodes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TvShows\PageTvShow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TvShows\PageTvShows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AppResources.es.resx" />
+    <EmbeddedResource Include="Resources\AppResources.fr.resx" />
+    <EmbeddedResource Include="Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=8.0.1.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\wp8\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\wp8\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Phone, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\wp8\Microsoft.Threading.Tasks.Extensions.Phone.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MyToolkit, Version=2.5.16.0, Culture=neutral, PublicKeyToken=3e349a1360994d26, processorArchitecture=MSIL">
+      <HintPath>..\packages\MyToolkit.2.5.16\lib\portable-net45+wp8+win8+wpa81\MyToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MyToolkit.Extended, Version=2.5.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MyToolkit.Extended.2.5.16\lib\wp80\MyToolkit.Extended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\sl4-windowsphone71\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\sl4-windowsphone71\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\sl4-windowsphone71\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WriteableBitmapExWinPhone, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WriteableBitmapEx.1.5.1.0\lib\WindowsPhone8\WriteableBitmapExWinPhone.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WriteableBitmapExWinPhoneXnaDependant, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WriteableBitmapEx.1.5.1.0\lib\WindowsPhone8\WriteableBitmapExWinPhoneXnaDependant.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KodiRemote.Core\KodiRemote.Core.csproj">
+      <Project>{a6ef47ce-5995-45c5-ba3f-96f9fc3e9a28}</Project>
+      <Name>KodiRemote.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\appbar.add.png" />
+    <Content Include="Assets\appbar.control.play.png" />
+    <Content Include="Assets\appbar.facebook.png" />
+    <Content Include="Assets\appbar.imdb.png" />
+    <Content Include="Assets\appbar.layer.delete.png" />
+    <Content Include="Assets\appbar.save.png" />
+    <Content Include="Assets\appbar.text.serif.png" />
+    <Content Include="Assets\appbar.tv.remote.png" />
+    <Content Include="Assets\appbar.twitter.bird.png" />
+    <Content Include="Assets\ApplicationIcon.png" />
+    <Content Include="Assets\BackgroundWelcome.png" />
+    <Content Include="Assets\Default\DefaultAlbumCover.png" />
+    <Content Include="Assets\Default\DefaultCast.png" />
+    <Content Include="Assets\Default\DefaultMovieSmall.png" />
+    <Content Include="Assets\Default\DefaultTvShow.png" />
+    <Content Include="Assets\Default\DefaultVideo.png" />
+    <Content Include="Assets\imdb.png" />
+    <Content Include="Assets\Logo.210x210.png" />
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\MainMenu\appbar.camera.png" />
+    <Content Include="Assets\MainMenu\appbar.cogs.png" />
+    <Content Include="Assets\MainMenu\appbar.control.play.png" />
+    <Content Include="Assets\MainMenu\appbar.deeplink.png" />
+    <Content Include="Assets\MainMenu\appbar.information.png" />
+    <Content Include="Assets\MainMenu\appbar.movie.clapper.png" />
+    <Content Include="Assets\MainMenu\appbar.music.png" />
+    <Content Include="Assets\MainMenu\appbar.settings.png" />
+    <Content Include="Assets\MainMenu\appbar.tv.png" />
+    <Content Include="Assets\MainMenu\appbar.tv.remote.png" />
+    <Content Include="Assets\MainMenu\xbmc.png" />
+    <Content Include="Assets\music\album-selected.png" />
+    <Content Include="Assets\music\album.png" />
+    <Content Include="Assets\music\artist-selected.png" />
+    <Content Include="Assets\music\artist-white.png" />
+    <Content Include="Assets\music\artist.png" />
+    <Content Include="Assets\music\genre-selected.png" />
+    <Content Include="Assets\music\genre-white.png" />
+    <Content Include="Assets\music\genre.png" />
+    <Content Include="Assets\music\song-selected.png" />
+    <Content Include="Assets\music\song.png" />
+    <Content Include="Assets\Ratings\Star.png" />
+    <Content Include="Assets\remote.png" />
+    <Content Include="Assets\Remote\arrow-back.png" />
+    <Content Include="Assets\Remote\arrow-down.png" />
+    <Content Include="Assets\Remote\arrow-left.png" />
+    <Content Include="Assets\Remote\arrow-right.png" />
+    <Content Include="Assets\Remote\arrow-up.png" />
+    <Content Include="Assets\Remote\back.png" />
+    <Content Include="Assets\Remote\contextMenu.png" />
+    <Content Include="Assets\Remote\display.png" />
+    <Content Include="Assets\Remote\ellipse.png" />
+    <Content Include="Assets\Remote\forward.png" />
+    <Content Include="Assets\Remote\home.png" />
+    <Content Include="Assets\Remote\info.png" />
+    <Content Include="Assets\Remote\keyboard.png" />
+    <Content Include="Assets\Remote\kodi-Side-by-side.png" />
+    <Content Include="Assets\Remote\kodi-Thumbnail-darkbg.png" />
+    <Content Include="Assets\Remote\mute.png" />
+    <Content Include="Assets\Remote\pin.png" />
+    <Content Include="Assets\Remote\play-pause.png" />
+    <Content Include="Assets\Remote\previous.png" />
+    <Content Include="Assets\Remote\rewind.png" />
+    <Content Include="Assets\Remote\skip.png" />
+    <Content Include="Assets\Remote\stop.png" />
+    <Content Include="Assets\Remote\subtitles.png" />
+    <Content Include="Assets\Remote\volumeDown.png" />
+    <Content Include="Assets\Remote\volumeUp.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\SquareTile150x150.png" />
+    <Content Include="Assets\SquareTile71x71.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileMedium.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileSmall.png" />
+    <Content Include="Assets\Tiles\TileRemote.png" />
+    <Content Include="Assets\YouTube-logo.png" />
+    <Content Include="Assets\YouTube-play.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+</Project>

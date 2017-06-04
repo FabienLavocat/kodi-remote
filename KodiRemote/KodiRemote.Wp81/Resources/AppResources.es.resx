@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Loading" xml:space="preserve">
+    <value>Cargando...</value>
+  </data>
+  <data name="Main_Page_Tile_About" xml:space="preserve">
+    <value>Acerca de</value>
+  </data>
+  <data name="Main_Page_Tile_Addons" xml:space="preserve">
+    <value>Addons</value>
+  </data>
+  <data name="Main_Page_Tile_Movies" xml:space="preserve">
+    <value>Películas</value>
+  </data>
+  <data name="Main_Page_Tile_Music" xml:space="preserve">
+    <value>Música</value>
+  </data>
+  <data name="Main_Page_Tile_Playlists" xml:space="preserve">
+    <value>Listas de reprod.</value>
+  </data>
+  <data name="Global_Remote_Control" xml:space="preserve">
+    <value>Control remoto</value>
+  </data>
+  <data name="Main_Page_Tile_Settings" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="Main_Page_Tile_Tv_Shows" xml:space="preserve">
+    <value>Series de TV</value>
+  </data>
+  <data name="Page_About_App_Bar_Review" xml:space="preserve">
+    <value>Crítica la aplicación</value>
+  </data>
+  <data name="Page_About_App_Bar_Share" xml:space="preserve">
+    <value>Compatir</value>
+  </data>
+  <data name="Page_About_Get_Kodi" xml:space="preserve">
+    <value>Descargar Kodi</value>
+  </data>
+  <data name="Page_About_Share_Message" xml:space="preserve">
+    <value>Estoy usando la aplicación Media Center Remote para el control de Kodi desde mi Windows Phone.</value>
+  </data>
+  <data name="Page_About_Title" xml:space="preserve">
+    <value>Acerca de</value>
+  </data>
+  <data name="Page_Actions_Hibernate" xml:space="preserve">
+    <value>Hibernar</value>
+  </data>
+  <data name="Page_Actions_Power_Off" xml:space="preserve">
+    <value>Apagar el sistema</value>
+  </data>
+  <data name="Page_Actions_Reboot" xml:space="preserve">
+    <value>Reiniciar</value>
+  </data>
+  <data name="Page_Actions_Suspend" xml:space="preserve">
+    <value>Suspender</value>
+  </data>
+  <data name="Page_Actions_Update_Audio_Library" xml:space="preserve">
+    <value>Analizar Audioteca</value>
+  </data>
+  <data name="Page_Actions_Update_Video_Library" xml:space="preserve">
+    <value>Analizar Videoteca</value>
+  </data>
+  <data name="Page_Actions_Update_Message_Audio_Message" xml:space="preserve">
+    <value>La exploración de la biblioteca de audio ha sido solicitada. Puede tomar algunos minutos antes de ver los nuevos artículos.</value>
+  </data>
+  <data name="Page_Actions_Update_Message_Video_Message" xml:space="preserve">
+    <value>La exploración de la biblioteca de vídeo ha sido solicitada. Puede tomar algunos minutos antes de ver los nuevos artículos.</value>
+  </data>
+  <data name="Page_Addon_App_Bar_Start" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="Page_Addon_App_Bar_Stop" xml:space="preserve">
+    <value>Detener</value>
+  </data>
+  <data name="Page_Addon_Author" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+  <data name="Page_Addon_Description" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="Page_Addon_Disclamer" xml:space="preserve">
+    <value>Aviso legal</value>
+  </data>
+  <data name="Page_Addon_Is_Broken" xml:space="preserve">
+    <value>¿Se ha roto?</value>
+  </data>
+  <data name="Page_Addon_Is_Enabled" xml:space="preserve">
+    <value>¿Está activado?</value>
+  </data>
+  <data name="Page_Addon_Version" xml:space="preserve">
+    <value>Versión</value>
+  </data>
+  <data name="Page_App_Settings_Description" xml:space="preserve">
+    <value>¿Quieres descargar imágenes de películas, programas de televisión o álbumes de música en tu teléfono?</value>
+  </data>
+  <data name="Page_App_Settings_Download_FanArt" xml:space="preserve">
+    <value>Descargar fondo Fan Art</value>
+  </data>
+  <data name="Page_App_Settings_Download_Thumbnails" xml:space="preserve">
+    <value>Descargar miniaturas</value>
+  </data>
+  <data name="Page_App_Settings_Title" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="Global_Genre" xml:space="preserve">
+    <value>Genero</value>
+  </data>
+  <data name="Global_Rating" xml:space="preserve">
+    <value>Calificación</value>
+  </data>
+  <data name="Global_Studio" xml:space="preserve">
+    <value>Estudio</value>
+  </data>
+  <data name="Global_Runtime" xml:space="preserve">
+    <value>Duración</value>
+  </data>
+  <data name="Page_Episode_Writer" xml:space="preserve">
+    <value>Escritor</value>
+  </data>
+  <data name="Page_Movies_Movies_RecentlyAdded" xml:space="preserve">
+    <value>añadidos recientemente</value>
+  </data>
+  <data name="Page_Movies_Movie_Director" xml:space="preserve">
+    <value>Director</value>
+  </data>
+  <data name="Global_Summary" xml:space="preserve">
+    <value>ARGUMENTO</value>
+  </data>
+  <data name="Page_Movies_OrderBy_Title" xml:space="preserve">
+    <value>ordenar por título</value>
+  </data>
+  <data name="Page_Movies_OrderBy_Year" xml:space="preserve">
+    <value>ordenar por año</value>
+  </data>
+  <data name="Page_Movies_RecentlyAdded_Title" xml:space="preserve">
+    <value>Añadidos recientemente</value>
+  </data>
+  <data name="Global_Songs" xml:space="preserve">
+    <value>Canciones</value>
+  </data>
+  <data name="Page_Music_Message_No_Musique" xml:space="preserve">
+    <value>No tienes ninguna música disponible en su biblioteca.</value>
+  </data>
+  <data name="Page_Music_Musics_Album" xml:space="preserve">
+    <value>álbumes</value>
+  </data>
+  <data name="Page_Music_Musics_Artists" xml:space="preserve">
+    <value>intérpretes</value>
+  </data>
+  <data name="Page_Music_Musics_Genres" xml:space="preserve">
+    <value>géneros</value>
+  </data>
+  <data name="Page_Music_Title" xml:space="preserve">
+    <value>Música</value>
+  </data>
+  <data name="Page_Music_Title_cap" xml:space="preserve">
+    <value>MUSICA</value>
+  </data>
+  <data name="Page_Playlists_Title" xml:space="preserve">
+    <value>Listas de reproducción</value>
+  </data>
+  <data name="Page_Send_Text_Send" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="Page_Send_Text_Title" xml:space="preserve">
+    <value>Enviar un mensaje</value>
+  </data>
+  <data name="Page_Servers_Add" xml:space="preserve">
+    <value>Añadir una nueva conexión</value>
+  </data>
+  <data name="Page_Servers_App_Bar_Edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="Page_Servers_App_Bar_Remove" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="Page_Servers_App_Bar_Remove_Confirm" xml:space="preserve">
+    <value>¿Está seguro que desea eliminar la conexión seleccionada de Kodi?</value>
+  </data>
+  <data name="Page_Servers_No_Move_Connection" xml:space="preserve">
+    <value>Ya no tienes conexión. Tienes que añadir una nueva.</value>
+  </data>
+  <data name="Page_Servers_Title" xml:space="preserve">
+    <value>KOKI SERVIDORS</value>
+  </data>
+  <data name="Page_Settings_Button_Save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="Page_Settings_MAC_Address" xml:space="preserve">
+    <value>Dirección MAC</value>
+  </data>
+  <data name="Page_Settings_MAC_Address_Optional" xml:space="preserve">
+    <value>Opcional. Utilizado para Wake On Lan. Formato : 00:00:00:00:00:00</value>
+  </data>
+  <data name="Page_Settings_Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="Page_Settings_Port_Number" xml:space="preserve">
+    <value>Número de puerto Kodi</value>
+  </data>
+  <data name="Page_Settings_Server_Address" xml:space="preserve">
+    <value>Dirección del servidor Kodi</value>
+  </data>
+  <data name="Page_Settings_Test_Bad" xml:space="preserve">
+    <value>Kodi no está disponible :(</value>
+  </data>
+  <data name="Page_Settings_Test_Good" xml:space="preserve">
+    <value>Eres bueno para ir.</value>
+  </data>
+  <data name="Page_Settings_Connectivity_Test" xml:space="preserve">
+    <value>Prueba de conectividad</value>
+  </data>
+  <data name="Page_Settings_Title" xml:space="preserve">
+    <value>Configuración de la conexión</value>
+  </data>
+  <data name="Page_Settings_Username" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="Page_Tv_Shows_Title" xml:space="preserve">
+    <value>Series de TV</value>
+  </data>
+  <data name="ResourceLanguage" xml:space="preserve">
+    <value>es</value>
+  </data>
+  <data name="Page_Send_Text_Text_To_Send" xml:space="preserve">
+    <value>Texto a enviar</value>
+  </data>
+  <data name="Page_App_Settings_AllowVibrate" xml:space="preserve">
+    <value>Permita que el teléfono vibre al presionar los botones del control remoto</value>
+  </data>
+  <data name="Global_Albums" xml:space="preserve">
+    <value>Albums</value>
+  </data>
+  <data name="Page_Movies_Title" xml:space="preserve">
+    <value>Peliculas</value>
+  </data>
+  <data name="Page_Movies_Movie_Trailer" xml:space="preserve">
+    <value>TRAILER</value>
+  </data>
+  <data name="Page_Playlists_Clear" xml:space="preserve">
+    <value>Claro</value>
+  </data>
+  <data name="Page_Tv_Shows_Keep_Watched" xml:space="preserve">
+    <value>Mantener vistos</value>
+  </data>
+  <data name="Page_Tv_Shows_Remove_Watched" xml:space="preserve">
+    <value>Eliminar vistos</value>
+  </data>
+  <data name="Page_Tv_Shows_Refresh" xml:space="preserve">
+    <value>Actualizar</value>
+  </data>
+  <data name="Global_Year" xml:space="preserve">
+    <value>Año</value>
+  </data>
+  <data name="Global_See_On_Imdb" xml:space="preserve">
+    <value>Ver en IMDB</value>
+  </data>
+  <data name="Global_Cast" xml:space="preserve">
+    <value>Reparto</value>
+  </data>
+  <data name="Global_Minutes" xml:space="preserve">
+    <value>minutos</value>
+  </data>
+  <data name="Global_Actions" xml:space="preserve">
+    <value>ACCIONES</value>
+  </data>
+  <data name="Global_Play" xml:space="preserve">
+    <value>Sonar</value>
+  </data>
+  <data name="Page_Tv_Shows_Votes_Format" xml:space="preserve">
+    <value>{0} votos</value>
+  </data>
+  <data name="Global_Parental_Rating" xml:space="preserve">
+    <value>Clasificación Parental</value>
+  </data>
+  <data name="Global_Cast_Capital" xml:space="preserve">
+    <value>REPARTO</value>
+  </data>
+  <data name="Global_Remote" xml:space="preserve">
+    <value>Remoto</value>
+  </data>
+  <data name="Global_Add_To_Playlist" xml:space="preserve">
+    <value>Añadir a lista de reproducción</value>
+  </data>
+  <data name="Global_Songs_Capital" xml:space="preserve">
+    <value>CANCIONES</value>
+  </data>
+  <data name="Global_Error_Message" xml:space="preserve">
+    <value>Ocurrió un error.</value>
+  </data>
+  <data name="Page_Playlists_No_Playlist" xml:space="preserve">
+    <value>Tus listas de reproducción están vacíos.</value>
+  </data>
+  <data name="Page_Movies_Message_No_Movie" xml:space="preserve">
+    <value>No tienes ninguna pelicula disponible en su biblioteca.</value>
+  </data>
+  <data name="Page_Episodes_Seasons" xml:space="preserve">
+    <value>TEMPORADAS</value>
+  </data>
+  <data name="Page_Tv_Shows_Message_No_Tv_Show" xml:space="preserve">
+    <value>No tienes ninguna serie de TV disponible en su biblioteca.</value>
+  </data>
+  <data name="Page_Welcome_Message" xml:space="preserve">
+    <value>Antes de usar la aplicación, debe seleccionar el servidor Kodi que desea conectarse.</value>
+  </data>
+  <data name="Page_Welcome_Add_Button" xml:space="preserve">
+    <value>Agregar servidor Kodi</value>
+  </data>
+  <data name="Page_Welcome_Get_Started" xml:space="preserve">
+    <value>Empezar</value>
+  </data>
+  <data name="Page_Tv_Shows_Seasons" xml:space="preserve">
+    <value>Temporadas</value>
+  </data>
+  <data name="Page_Tv_Shows_Not_Watched" xml:space="preserve">
+    <value>No visto</value>
+  </data>
+  <data name="Page_Tv_Shows_Watched" xml:space="preserve">
+    <value>Visto</value>
+  </data>
+  <data name="Global_Download" xml:space="preserve">
+    <value>Descargar</value>
+  </data>
+  <data name="Global_Downloads" xml:space="preserve">
+    <value>Descargas</value>
+  </data>
+  <data name="Page_Downloads_Nothing_To_Download" xml:space="preserve">
+    <value>Nada para descargar</value>
+  </data>
+  <data name="Global_Downloads_Started_Format" xml:space="preserve">
+    <value>El archivo '{0}' está siendo descargado en el teléfono.</value>
+  </data>
+  <data name="Page_Downloads_Status_Completed" xml:space="preserve">
+    <value>La descarga se haya completado</value>
+  </data>
+  <data name="Page_Downloads_Status_Copying" xml:space="preserve">
+    <value>Copiar el archivo en el teléfono</value>
+  </data>
+  <data name="Page_Downloads_Status_Downloading" xml:space="preserve">
+    <value>Descarga en progreso...</value>
+  </data>
+  <data name="Page_Downloads_Status_Error" xml:space="preserve">
+    <value>Un error ocurrió</value>
+  </data>
+  <data name="Page_Downloads_Status_Initialized" xml:space="preserve">
+    <value>Descargar inicializado</value>
+  </data>
+  <data name="Page_Downloads_Status_Paused" xml:space="preserve">
+    <value>Descarga en pausa</value>
+  </data>
+  <data name="Page_Downloads_Status_Removing" xml:space="preserve">
+    <value>Eliminar el archivo temporal</value>
+  </data>
+</root>

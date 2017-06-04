@@ -1,0 +1,96 @@
+﻿<phone:PhoneApplicationPage x:Class="KodiRemote.Wp81.PagePlaylists"
+                            x:Name="Page"
+                            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+                            xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                            xmlns:wp8="clr-namespace:KodiRemote.Wp81"
+                            xmlns:core="clr-namespace:KodiRemote.Wp81.Core"
+                            SupportedOrientations="Portrait"
+                            Orientation="Portrait"
+                            mc:Ignorable="d"
+                            d:DataContext="{d:DesignInstance wp8:PagePlaylists}"
+                            shell:SystemTray.IsVisible="True"
+                            shell:SystemTray.BackgroundColor="#E2A828"
+                            shell:SystemTray.ForegroundColor="White">
+
+    <phone:PhoneApplicationPage.Resources>
+
+        <DataTemplate x:Key="PivotHeaderTemplate">
+            <ContentControl Content="{Binding Name}" />
+        </DataTemplate>
+
+        <DataTemplate x:Key="PivotItemTemplate">
+            <ScrollViewer Margin="-12,0">
+                <ItemsControl ItemsSource="{Binding Items}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="White"
+                                    BorderBrush="#D9D9D9"
+                                    BorderThickness="0,1"
+                                    Margin="-12,0,-12,-1">
+                                <TextBlock Foreground="Black"
+                                           Margin="32,15,15,15"
+                                           Text="{Binding Title}" />
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </DataTemplate>
+
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid Margin="0,-1,0,0"
+          Background="#EFEFF4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Background="#FDBD2C"
+                BorderBrush="#22000000"
+                BorderThickness="0,0,0,2"
+                Margin="0,0,0,-2"
+                Padding="10">
+
+            <TextBlock Text="{Binding Path=LocalizedResources.Page_Playlists_Title, Source={StaticResource LocalizedStrings}}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                       FontSize="28" />
+        </Border>
+
+        <phone:Pivot x:Name="Pivot"
+                     Grid.Row="1"
+                     Foreground="Black"
+                     ItemsSource="{Binding Playlists, ElementName=Page}"
+                     HeaderTemplate="{StaticResource PivotHeaderTemplate}"
+                     ItemTemplate="{StaticResource PivotItemTemplate}">
+            <phone:Pivot.TitleTemplate>
+                <DataTemplate>
+                    <Grid />
+                </DataTemplate>
+            </phone:Pivot.TitleTemplate>
+
+        </phone:Pivot>
+
+        <core:LoadingIndicator Grid.Row="1"
+                               IsRunning="{Binding IsLoading, ElementName=Page}" />
+
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Mode="Default"
+                              Opacity="1.0"
+                              IsVisible="True"
+                              BackgroundColor="White"
+                              ForegroundColor="#FF333333">
+
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
