@@ -178,9 +178,6 @@
     <Compile Include="PageSettings.xaml.cs">
       <DependentUpon>PageSettings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageTvShows.xaml.cs">
-      <DependentUpon>PageTvShows.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PageWelcome.xaml.cs">
       <DependentUpon>PageWelcome.xaml</DependentUpon>
     </Compile>
@@ -292,10 +289,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="PageSettings.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="PageTvShows.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
