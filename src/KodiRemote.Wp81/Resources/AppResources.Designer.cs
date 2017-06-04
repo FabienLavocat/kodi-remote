@@ -412,7 +412,7 @@ namespace KodiRemote.Wp81.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copyright 2016 Fabien Lavocat.
+        ///   Looks up a localized string similar to Copyright 2017 Fabien Lavocat.
         /// </summary>
         public static string Page_About_Copyright {
             get {

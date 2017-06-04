@@ -454,7 +454,7 @@
     <value>Rien à télécharger</value>
   </data>
   <data name="Global_Downloads_Started_Format" xml:space="preserve">
-    <value>Le fichier '{0' est en cours de téléchargement sur votre téléphone.</value>
+    <value>Le fichier '{0}' est en cours de téléchargement sur votre téléphone.</value>
   </data>
   <data name="Page_Downloads_Status_Completed" xml:space="preserve">
     <value>Le téléchargement est terminé</value>
