@@ -143,8 +143,7 @@ namespace KodiRemote.Wp81
                 var cnx = new XbmcConnection
                     {
                         IsDefault = true,
-                        //Xbmc = new KodiRemote.Core.Connection("123", "80", "xbmc", "")
-                        Xbmc = new KodiRemote.Core.Connection("192.168.1.147", "80", "kodi", "")
+                        Xbmc = new KodiRemote.Core.Connection("123", "80", "xbmc", "")
                     };
                 Connections.Add(cnx);
             }
