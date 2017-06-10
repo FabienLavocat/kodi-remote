@@ -1,6 +1,6 @@
 # Remote for Kodi Media Center
 
-This project is the Remote Control I have built a while ago for [Kodi | Open Source Home Theater Software](https://kodi.tv/). It runs on Windows Phone 8.1 (and maby Windows Phone 10). Since I don't have much time to add new feature and maintain the software up to date with all the new versions of Windows Phone (and by the lack of users as well) I've decided to publish the remote as an Open Source project. If someone (maybe you :) ) wants to help on the project, maybe add the support of a new platform, like Windows tablets, I'll publish it to the current base of users.
+This project is the Remote Control I have built a while ago for [Kodi | Open Source Home Theater Software](https://kodi.tv/). It runs on Windows Phone 8.1 (and maybe Windows Phone 10 and Windows 10 with UWP). Since I don't have much time to add new feature and maintain the software up to date with all the new versions of Windows Phone (and by the lack of users as well) I've decided to publish the remote as an Open Source project. If someone (maybe you :) ) wants to help on the project, maybe add the support of a new platform, like Windows tablets, I'll publish it to the current base of users.
 
 ## Features:
 * Multiple connections for all your Kodi / XBMC media centers.
