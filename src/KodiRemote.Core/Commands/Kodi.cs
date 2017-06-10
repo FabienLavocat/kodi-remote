@@ -5,16 +5,16 @@ using KodiRemote.Core.Responses;
 
 namespace KodiRemote.Core.Commands
 {
-    public sealed class Xbmc : CommandCollection
+    public sealed class Kodi : CommandCollection
     {
         private readonly Request _request;
 
-        internal Xbmc(Connection xbmc)
+        internal Kodi(Connection kodi)
         {
-            _request = new Request(xbmc);
+            _request = new Request(kodi);
         }
 
-        /// <summary>Retrieve info labels about XBMC and the system.</summary>
+        /// <summary>Retrieve info labels about Kodi and the system.</summary>
         public async Task<Dictionary<string, string>> GetInfoLabelsAsync(string label, params string[] labels)
         {
             var lbls = new List<string>(labels);

@@ -100,7 +100,7 @@
     <Compile Include="Commands\Playlist.cs" />
     <Compile Include="Commands\System.cs" />
     <Compile Include="Commands\VideoLibrary.cs" />
-    <Compile Include="Commands\Xbmc.cs" />
+    <Compile Include="Commands\Kodi.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="Model\Addon.cs" />
     <Compile Include="Model\Audio.cs" />

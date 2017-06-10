@@ -29,7 +29,7 @@ namespace KodiRemote.Core
             Playlist = new Playlist(this);
             System = new Commands.System(this);
             VideoLibrary = new VideoLibrary(this);
-            Xbmc = new Xbmc(this);
+            Server = new Kodi(this);
         }
 
         [JsonProperty]
@@ -74,7 +74,7 @@ namespace KodiRemote.Core
 
         public VideoLibrary VideoLibrary { get; }
 
-        public Xbmc Xbmc { get; }
+        public Kodi Server { get; }
 
         internal string BaseUrl
         {

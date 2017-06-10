@@ -189,7 +189,7 @@ namespace KodiRemote.Wp81.Core
             Status = IsOnline ? ConnectionStatus.Online : ConnectionStatus.Offline;
             if (!IsOnline) return false;
 
-            var labels = await Xbmc.Xbmc.GetInfoLabelsAsync(labelFriendlyName, labelBuildVersion);
+            var labels = await Xbmc.Server.GetInfoLabelsAsync(labelFriendlyName, labelBuildVersion);
             Name = labels[labelFriendlyName];
             Version = labels[labelBuildVersion];
 
