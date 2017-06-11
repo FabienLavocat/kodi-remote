@@ -107,7 +107,16 @@ namespace KodiRemote.Wp81.Music
                     throw new Exception(AppResources.Page_Music_Message_No_Musique);
 
                 Artists = Group.CreateGroups(artists.Artists, a => Group.GetGroupKey(a.ArtistName));
+            }
+            catch (Exception ex)
+            {
+                ArtistsBorder.Visibility = Visibility.Collapsed;
+                App.TrackException(ex);
+                MessageBox.Show(AppResources.Global_Error_Message, AppResources.ApplicationTitle, MessageBoxButton.OK);
+            }
 
+            try
+            {
                 var albums = await App.Context.Connection.Xbmc.AudioLibrary.GetAlbumsAsync(
                     fields: new[] { AudioFieldsAlbum.thumbnail, AudioFieldsAlbum.title, AudioFieldsAlbum.displayartist });
                 if (albums.Albums == null)
@@ -115,7 +124,16 @@ namespace KodiRemote.Wp81.Music
 
                 var extendedAlbums = albums.Albums.Select(a => new ExtendedAudioDetailsAlbum(a));
                 Albums = Group.CreateGroups(extendedAlbums, a => Group.GetGroupKey(a.Value.Title));
+            }
+            catch (Exception ex)
+            {
+                AlbumsBorder.Visibility = Visibility.Collapsed;
+                App.TrackException(ex);
+                MessageBox.Show(AppResources.Global_Error_Message, AppResources.ApplicationTitle, MessageBoxButton.OK);
+            }
 
+            try
+            {
                 var genres = await App.Context.Connection.Xbmc.AudioLibrary.GetGenresAsync(fields: LibraryFieldsGenre.title);
                 if (genres.Genres == null)
                     throw new Exception(AppResources.Page_Music_Message_No_Musique);
@@ -123,10 +141,9 @@ namespace KodiRemote.Wp81.Music
             }
             catch (Exception ex)
             {
+                GenresBorder.Visibility = Visibility.Collapsed;
                 App.TrackException(ex);
                 MessageBox.Show(AppResources.Global_Error_Message, AppResources.ApplicationTitle, MessageBoxButton.OK);
-                if (NavigationService.CanGoBack)
-                    NavigationService.GoBack();
             }
         }
 
