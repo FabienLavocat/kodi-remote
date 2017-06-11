@@ -89,6 +89,12 @@
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Addons\PageAddon.xaml.cs">
+      <DependentUpon>PageAddon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Addons\PageAddons.xaml.cs">
+      <DependentUpon>PageAddons.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -98,14 +104,17 @@
     <Compile Include="Controls\TextBoxPlaceholder.xaml.cs">
       <DependentUpon>TextBoxPlaceholder.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\InvertedBooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\SecondsToStringConverter.cs" />
     <Compile Include="Converters\StatusToVisibilityConverter.cs" />
     <Compile Include="Core\Command.cs" />
     <Compile Include="Core\ConnectionStatus.cs" />
     <Compile Include="Core\Context.cs" />
+    <Compile Include="Core\Extended.cs" />
     <Compile Include="Core\Helpers.cs" />
     <Compile Include="Core\KodiConnection.cs" />
+    <Compile Include="Core\NotifyPropertyChanged.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -137,6 +146,9 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="KodiRemote.Uwp_TemporaryKey.pfx" />
+    <PRIResource Include="Strings\en-US\addons.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
     <PRIResource Include="Strings\en-US\appSettings.resw">
       <SubType>Designer</SubType>
     </PRIResource>
@@ -168,6 +180,17 @@
     <Content Include="Assets\Default\DefaultVideo.png" />
     <Content Include="Assets\facebook.png" />
     <Content Include="Assets\github.png" />
+    <Content Include="Assets\MainMenu\appbar.camera.png" />
+    <Content Include="Assets\MainMenu\appbar.cogs.png" />
+    <Content Include="Assets\MainMenu\appbar.control.play.png" />
+    <Content Include="Assets\MainMenu\appbar.deeplink.png" />
+    <Content Include="Assets\MainMenu\appbar.information.png" />
+    <Content Include="Assets\MainMenu\appbar.movie.clapper.png" />
+    <Content Include="Assets\MainMenu\appbar.music.png" />
+    <Content Include="Assets\MainMenu\appbar.settings.png" />
+    <Content Include="Assets\MainMenu\appbar.tv.png" />
+    <Content Include="Assets\MainMenu\appbar.tv.remote.png" />
+    <Content Include="Assets\MainMenu\xbmc.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\Square150x150Logo.scale-100.png" />
     <Content Include="Assets\SquareTile150x150.png" />
@@ -213,6 +236,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Addons\PageAddon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Addons\PageAddons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\LoadingIndicator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -284,6 +315,9 @@
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>10.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Win2D.uwp">
+      <Version>1.20.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

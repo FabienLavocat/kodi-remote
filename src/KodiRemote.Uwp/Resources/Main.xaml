@@ -764,5 +764,14 @@
         </Setter>
     </Style>
 
+    <Style x:Key="SmallDarkTextBoxStyle"
+           TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="Black" />
+        <Setter Property="FontSize"
+                Value="{StaticResource PhoneFontSizeNormal}" />
+        <Setter Property="FontFamily"
+                Value="{StaticResource PhoneFontFamilyNormal}" />
+    </Style>
 
 </ResourceDictionary>

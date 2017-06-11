@@ -37,6 +37,12 @@ namespace KodiRemote.Uwp
             Suspending += OnSuspending;
         }
 
+        public static void TrackException(Exception e)
+        {
+            IDictionary<string, string> properties = new Dictionary<string, string>();
+            properties.Add("Kodi_Version", Context.Connection?.Version);
+        }
+
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used such as when the application is launched to open a specific file.

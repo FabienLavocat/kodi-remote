@@ -6,7 +6,7 @@
     <converters:SecondsToStringConverter x:Key="SecondsToStringConverter" />
     <converters:MilliSecondsToStringConverter x:Key="MilliSecondsToStringConverter" />
     <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-    <!--<converters:InvertedBooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter" />
-    <converters:ShorterStringConverter x:Key="ShorterStringConverter" />-->
+    <converters:InvertedBooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter" />
+    <!--<converters:ShorterStringConverter x:Key="ShorterStringConverter" />-->
 
 </ResourceDictionary>

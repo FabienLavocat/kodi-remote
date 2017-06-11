@@ -117,34 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ActionsCaps.Text" xml:space="preserve">
-    <value>ACTIONS</value>
+  <data name="AddonAuthor.Text" xml:space="preserve">
+    <value>Author</value>
   </data>
-  <data name="ApplicationTitle" xml:space="preserve">
-    <value>Media Center Remote</value>
+  <data name="AddonDescription.Text" xml:space="preserve">
+    <value>Description</value>
   </data>
-  <data name="ApplicationTitleCaps.Text" xml:space="preserve">
-    <value>MEDIA CENTER REMOTE</value>
+  <data name="AddonDisclamer.Text" xml:space="preserve">
+    <value>Disclamer</value>
   </data>
-  <data name="DialogCancel" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="AddonIsBroken.Text" xml:space="preserve">
+    <value>Is Broken?</value>
   </data>
-  <data name="DialogOK" xml:space="preserve">
-    <value>OK</value>
+  <data name="AddonIsEnabled.Text" xml:space="preserve">
+    <value>Is Enabled?</value>
   </data>
-  <data name="GlobalErrorMessage" xml:space="preserve">
-    <value>An error happened.</value>
+  <data name="AddonStart.Text" xml:space="preserve">
+    <value>Start</value>
   </data>
-  <data name="Loading" xml:space="preserve">
-    <value>Loading...</value>
+  <data name="AddonsTitle.Text" xml:space="preserve">
+    <value>Addons</value>
   </data>
-  <data name="SendTextButton.Content" xml:space="preserve">
-    <value>Submit</value>
+  <data name="AddonStop.Text" xml:space="preserve">
+    <value>Stop</value>
   </data>
-  <data name="SendTextTitle.Text" xml:space="preserve">
-    <value>Send text</value>
+  <data name="AddonTitle.Text" xml:space="preserve">
+    <value>Addon</value>
   </data>
-  <data name="TextToSend.Text" xml:space="preserve">
-    <value>Text to send</value>
+  <data name="AddonVersion.Text" xml:space="preserve">
+    <value>Version</value>
   </data>
 </root>

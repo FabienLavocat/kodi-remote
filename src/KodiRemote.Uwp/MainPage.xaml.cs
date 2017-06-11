@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Input;
+using KodiRemote.Uwp.Addons;
 using KodiRemote.Uwp.AppSettings;
 using KodiRemote.Uwp.Core;
 using Windows.UI.Xaml;
@@ -152,7 +153,7 @@ namespace KodiRemote.Uwp
 
         private void GoToAddons(object o)
         {
-            // Frame.Navigate(typeof(PageAddons));
+            Frame.Navigate(typeof(PageAddons));
         }
 
         #endregion

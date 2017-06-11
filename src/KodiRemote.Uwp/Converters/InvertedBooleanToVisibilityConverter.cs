@@ -4,7 +4,7 @@ using Windows.UI.Xaml.Data;
 
 namespace KodiRemote.Uwp.Converters
 {
-    public class BooleanToVisibilityConverter : IValueConverter
+    public class InvertedBooleanToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
@@ -12,12 +12,12 @@ namespace KodiRemote.Uwp.Converters
             if (value is bool)
                 flag = (bool)value;
 
-            return (flag ? Visibility.Visible : Visibility.Collapsed);
+            return (flag ? Visibility.Collapsed : Visibility.Visible);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            return ((value is Visibility) && (((Visibility)value) == Visibility.Visible));
+            return ((value is Visibility) && (((Visibility)value) != Visibility.Visible));
         }
     }
 }
