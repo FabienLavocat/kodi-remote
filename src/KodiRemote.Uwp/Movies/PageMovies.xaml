@@ -1,0 +1,92 @@
+﻿<Page x:Name="Page"
+      x:Class="KodiRemote.Uwp.Movies.PageMovies"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:movies="using:KodiRemote.Uwp.Movies"
+      xmlns:controls="using:KodiRemote.Uwp.Controls"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      d:DataContext="{d:DesignInstance movies:PageMovies}">
+
+    <Page.Resources>
+        <Style TargetType="GridViewItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        </Style>
+    </Page.Resources>
+
+    <Grid Margin="0,-1,0,0"
+          Background="#EFEFF4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Background="#B38EC1"
+                BorderBrush="#22000000"
+                BorderThickness="0,0,0,2"
+                Margin="0,0,0,-2"
+                Padding="10">
+
+            <TextBlock x:Uid="/movies/MoviesTitle"
+                       Text="Movies"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                       FontSize="28" />
+        </Border>
+
+        <GridView Grid.Row="1"
+                  x:Name="LstMovies"
+                  ItemsSource="{Binding Movies, ElementName=Page}"
+                  ItemClick="LstMovies_ItemClick"
+                  Style="{StaticResource MoviesGridViewStyle}"
+                  ItemTemplate="{StaticResource MovieItemTemplate}"
+                  SelectionMode="None"
+                  IsItemClickEnabled="True">
+            <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsWrapGrid Orientation="Horizontal"
+                                   MaximumRowsOrColumns="3" />
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
+        </GridView>
+
+        <controls:LoadingIndicator Grid.Row="1"
+                                   IsRunning="{Binding IsLoading, ElementName=Page}"
+                                   d:IsHidden="True" />
+
+    </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar Background="White"
+                    Foreground="Black">
+            <AppBarButton x:Uid="/movies/CommandSort"
+                          Label="Sort"
+                          Icon="Sort">
+                <AppBarButton.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem x:Uid="/movies/CommandSortByYear"
+                                        Text="By Year"
+                                        Click="SortByYear_Click" />
+                        <MenuFlyoutItem x:Uid="/movies/CommandSortByTitle"
+                                        Text="By Title"
+                                        Click="SortByTitle_Click" />
+                    </MenuFlyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+            
+            <AppBarButton x:Uid="/movies/CommandRecentlyAdded"
+                          Label="Recently Added"
+                          Icon="Clock"
+                          Click="RecentlyAdded_Click" />
+
+            <AppBarButton x:Uid="/movies/CommandRemote"
+                          Label="Remote"
+                          Click="Remote_Click"
+                          Icon="CellPhone" />
+        </CommandBar>
+    </Page.BottomAppBar>
+
+</Page>

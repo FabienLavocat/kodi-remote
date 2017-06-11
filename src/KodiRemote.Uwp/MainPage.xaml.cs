@@ -4,6 +4,7 @@ using System.Windows.Input;
 using KodiRemote.Uwp.Addons;
 using KodiRemote.Uwp.AppSettings;
 using KodiRemote.Uwp.Core;
+using KodiRemote.Uwp.Movies;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -105,7 +106,7 @@ namespace KodiRemote.Uwp
 
         private void GoToMovies(object o)
         {
-            // Frame.Navigate(typeof(PageMovies));
+            Frame.Navigate(typeof(PageMovies));
         }
 
         #endregion
