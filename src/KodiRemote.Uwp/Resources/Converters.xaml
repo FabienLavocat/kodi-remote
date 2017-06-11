@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="using:KodiRemote.Uwp.Converters">
+
+    <converters:StatusToVisibilityConverter x:Key="StatusToVisibilityConverter" />
+    <converters:SecondsToStringConverter x:Key="SecondsToStringConverter" />
+    <converters:MilliSecondsToStringConverter x:Key="MilliSecondsToStringConverter" />
+    <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <!--<converters:InvertedBooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter" />
+    <converters:ShorterStringConverter x:Key="ShorterStringConverter" />-->
+
+</ResourceDictionary>

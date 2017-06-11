@@ -1,0 +1,153 @@
+﻿<Page x:Class="KodiRemote.Uwp.AppSettings.PageAppSettings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+    
+    <Grid Margin="0,-1,0,0"
+          Background="#EFEFF4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border Background="#9CCF66"
+                BorderBrush="#22000000"
+                BorderThickness="0,0,0,2"
+                Margin="0,0,0,-2"
+                Padding="10">
+
+            <TextBlock x:Uid="SettingsTitle"
+                       Text="Settings"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                       FontSize="28" />
+        </Border>
+
+        <StackPanel Grid.Row="1"
+                    Margin="0,30">
+
+            <TextBlock x:Uid="Description"
+                       Grid.Row="0"
+                       Grid.ColumnSpan="2"
+                       TextWrapping="Wrap"
+                       Margin="20,0,20,20"
+                       Foreground="#6D6D72"
+                       Text="Do you want to download images of the movies, TV Shows or music albums on your phone?" />
+
+            <Border Background="White"
+                    BorderBrush="#C8C7CC"
+                    BorderThickness="0,1">
+                <Grid Margin="15,0"
+                      Height="65">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock x:Uid="DownloadFanArt"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               Foreground="Black"
+                               Text="Download Fan Art background" />
+
+                    <ToggleSwitch x:Name="TgDownloadFanArt"
+                                  Grid.Column="1"
+                                  IsOn="True"
+                                  Style="{StaticResource SimpleToggleSwitchStyle}" />
+                </Grid>
+            </Border>
+
+            <Border Background="White"
+                    BorderBrush="#C8C7CC"
+                    BorderThickness="0,0,0,1">
+                <Grid Margin="15,0"
+                      Height="65">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock x:Uid="DownloadThumbnails"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               Foreground="Black"
+                               Text="Download thumbnails" />
+
+                    <ToggleSwitch x:Name="TgDownloadThumbnails"
+                                  Grid.Column="1"
+                                  IsOn="True"
+                                  Style="{StaticResource SimpleToggleSwitchStyle}" />
+                </Grid>
+            </Border>
+
+            <Border Background="White"
+                    BorderBrush="#C8C7CC"
+                    BorderThickness="0,0,0,1">
+                <Grid Margin="15,0"
+                      Height="65">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock x:Uid="AllowVibrate"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               Foreground="Black"
+                               TextWrapping="Wrap"
+                               Text="Allow your phone to vibrate on the remote" />
+
+                    <ToggleSwitch x:Name="TgAllowVibrate"
+                                  Grid.Column="1"
+                                  IsOn="True"
+                                  Style="{StaticResource SimpleToggleSwitchStyle}" />
+                </Grid>
+            </Border>
+        </StackPanel>
+
+        <!--<StackPanel Grid.Row="2">
+
+            <Button Style="{StaticResource HorizontalButtonStyle}"
+                    Click="DownloadButtonClick">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Border Background="#3498db"
+                            Height="40"
+                            Width="40"
+                            CornerRadius="12">
+                        <TextBlock Text="&#xE118;"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="White"
+                                   FontFamily="Segoe UI Symbol"
+                                   FontSize="22"
+                                   FontWeight="Bold" />
+                    </Border>
+
+                    <TextBlock x:Uid="Downloads"
+                               Grid.Column="1"
+                               Text="Downloads"
+                               VerticalAlignment="Center"
+                               Margin="10,0" />
+
+                    <TextBlock Grid.Column="2"
+                               FontFamily="Segoe UI Symbol"
+                               Text="&#xe23a;"
+                               Foreground="#C7C7C7"
+                               VerticalAlignment="Center" />
+                </Grid>
+            </Button>
+        </StackPanel>-->
+
+    </Grid>
+</Page>

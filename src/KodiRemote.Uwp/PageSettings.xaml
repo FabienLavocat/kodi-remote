@@ -1,0 +1,97 @@
+﻿<Page x:Class="KodiRemote.Uwp.PageSettings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:controls="using:KodiRemote.Uwp.Controls"
+      Foreground="#6D6D72"
+      mc:Ignorable="d">
+
+    <Grid Margin="0,-1,0,0">
+        <Grid.Background>
+            <ImageBrush Stretch="Fill"
+                        ImageSource="/Assets/BackgroundWelcome.png" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Background="#383A3B"
+                BorderBrush="#22000000"
+                BorderThickness="0,0,0,2"
+                Margin="0,0,0,-2"
+                Padding="10">
+
+            <TextBlock x:Uid="/settings/Title"
+                       Text="Settings"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                       FontSize="28" />
+        </Border>
+
+        <ScrollViewer Grid.Row="1">
+
+            <StackPanel Margin="10,40">
+
+                <controls:TextBoxPlaceholder x:Uid="/settings/ServerAddress"
+                                             Text="{Binding Address, Mode=TwoWay}"
+                                             Placeholder="Server Address" />
+
+                <controls:TextBoxPlaceholder x:Uid="/settings/PortNumber"
+                                             Text="{Binding Port, Mode=TwoWay}"
+                                             MaxLength="6"
+                                             Placeholder="Port Number"
+                                             Width="290"
+                                             HorizontalAlignment="Left">
+                    <controls:TextBoxPlaceholder.InputScope>
+                        <InputScope>
+                            <InputScope.Names>
+                                <InputScopeName NameValue="Digits" />
+                            </InputScope.Names>
+                        </InputScope>
+                    </controls:TextBoxPlaceholder.InputScope>
+                </controls:TextBoxPlaceholder>
+
+                <controls:TextBoxPlaceholder x:Uid="/settings/Username"
+                                             Text="{Binding Login, Mode=TwoWay, ElementName=Page}"
+                                             Placeholder="Username" />
+
+                <controls:TextBoxPlaceholder x:Uid="/settings/Password"
+                                             Text="{Binding Password, Mode=TwoWay, ElementName=Page}"
+                                             Placeholder="Password" />
+
+                <controls:TextBoxPlaceholder x:Uid="/settings/MACAddress"
+                                             Text="{Binding MacAddress, Mode=TwoWay, ElementName=Page}"
+                                             Placeholder="MAC Address" />
+
+                <TextBlock x:Uid="/settings/MACAddressOptional"
+                           Text="MAC Address Optional"
+                           TextWrapping="WrapWholeWords"
+                           Margin="12,6,0,12"
+                           FontSize="16" />
+
+                <Button x:Uid="/settings/ButtonSave"
+                        Content="Save"
+                        Click="SaveButtonClick"
+                        Style="{StaticResource CleanButtonStyle}"
+                        Background="#383A3B"
+                        BorderBrush="#383A3B" />
+
+                <Button x:Uid="/settings/ConnectivityTest"
+                        Content="Connectivity test"
+                        Click="TestButtonClick"
+                        Style="{StaticResource CleanButtonStyle}"
+                        Background="#29343A"
+                        BorderBrush="#29343A" />
+            </StackPanel>
+
+        </ScrollViewer>
+
+        <controls:LoadingIndicator Grid.Row="1"
+                                   IsRunning="{Binding IsLoading, ElementName=Page}" />
+    </Grid>
+
+</Page>

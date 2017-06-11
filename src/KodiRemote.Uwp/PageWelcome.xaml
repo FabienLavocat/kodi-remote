@@ -1,0 +1,114 @@
+﻿<Page x:Class="KodiRemote.Uwp.PageWelcome"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      FontFamily="{StaticResource PhoneFontFamilyNormal}"
+      FontSize="{StaticResource PhoneFontSizeNormal}"
+      Foreground="{StaticResource PhoneForegroundBrush}">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush Stretch="Fill"
+                        ImageSource="/Assets/BackgroundWelcome.png" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".7*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="1"
+                    Background="#383A3B">
+                <TextBlock x:Uid="/welcome/GetStarted"
+                           Text="Get Started"
+                           VerticalAlignment="Center"
+                           Margin="75,0,0,0"
+                           FontFamily="{StaticResource PhoneFontFamilyLight}"
+                           FontSize="26" />
+            </Border>
+
+            <Border Grid.ColumnSpan="2"
+                    Background="#383A3B"
+                    CornerRadius="75"
+                    Height="150"
+                    Width="150">
+                <Border Background="#1B1C1F"
+                        CornerRadius="90"
+                        Height="115"
+                        Width="115">
+                    <Grid>
+                        <Grid Margin="3">
+                            <Image Source="Assets/Remote/arrow-left.png"
+                                   Width="20"
+                                   HorizontalAlignment="Left" />
+                            <Image Source="Assets/Remote/arrow-up.png"
+                                   Width="20"
+                                   VerticalAlignment="Top" />
+                            <Image Source="Assets/Remote/arrow-right.png"
+                                   Width="20"
+                                   HorizontalAlignment="Right" />
+                            <Image Source="Assets/Remote/arrow-down.png"
+                                   Width="20"
+                                   VerticalAlignment="Bottom" />
+                        </Grid>
+
+                        <Border Background="#383A3B"
+                                CornerRadius="40"
+                                Height="55"
+                                Width="55">
+                            <TextBlock Text="OK"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Padding="0,0,0,3"
+                                       FontFamily="Segoe UI"
+                                       FontSize="26" />
+                        </Border>
+                    </Grid>
+                </Border>
+            </Border>
+
+        </Grid>
+
+        <Grid Grid.Row="1"
+              Margin="15,50">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Uid="/welcome/AppTittle"
+                       Text="Media Center Remote"
+                       Style="{StaticResource PhoneTextLargeStyle}"
+                       HorizontalAlignment="Center" />
+
+            <TextBlock x:Uid="/welcome/WelcomeMessage"
+                       x:Name="WelcomeText"
+                       Grid.Row="2"
+                       Text="Welcome Message"
+                       TextWrapping="Wrap"
+                       HorizontalAlignment="Center"
+                       FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                       Foreground="#8F9595"
+                       TextAlignment="Center" />
+
+            <Button x:Uid="/welcome/AddButton"
+                    x:Name="AddButton"
+                    Click="AddButtonClick"
+                    Grid.Row="3"
+                    Content="Add Kodi Server"
+                    HorizontalAlignment="Center"
+                    Margin="0,10,0,0"
+                    Style="{StaticResource TextButtonStyle}" />
+
+        </Grid>
+    </Grid>
+</Page>

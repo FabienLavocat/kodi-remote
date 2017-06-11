@@ -1,0 +1,54 @@
+﻿<Page x:Name="Page"
+      x:Class="KodiRemote.Uwp.PageSendText"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:KodiRemote.Uwp"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:controls="using:KodiRemote.Uwp.Controls"
+      mc:Ignorable="d">
+
+    <Grid Margin="0,-1,0,0">
+        <Grid.Background>
+            <ImageBrush Stretch="Fill"
+                        ImageSource="/Assets/BackgroundWelcome.png" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Background="#383A3B"
+                BorderBrush="#22000000"
+                BorderThickness="0,0,0,2"
+                Margin="0,0,0,-2"
+                Padding="10">
+
+            <TextBlock x:Uid="SendTextTitle"
+                       Text="Send text"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                       FontSize="28" />
+        </Border>
+
+        <StackPanel Grid.Row="1"
+                    Margin="12,24,12,0">
+
+
+            <controls:TextBoxPlaceholder x:Uid="TextToSend"
+                                         x:Name="TxtTextToSend"
+                                         Text="{Binding TextToSend, Mode=TwoWay, ElementName=Page}"
+                                         Placeholder="Text to send" />
+
+            <Button x:Uid="SendTextButton"
+                    Content="Submit"
+                    Click="ButtonSendClick"
+                    Style="{StaticResource CleanButtonStyle}"
+                    Background="#383A3B"
+                    BorderBrush="#383A3B" />
+        </StackPanel>
+    </Grid>
+
+</Page>

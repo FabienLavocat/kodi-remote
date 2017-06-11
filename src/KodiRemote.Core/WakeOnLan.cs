@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
+#if SILVERLIGHT
 using Microsoft.Phone.Net.NetworkInformation;
+#endif
 
 namespace KodiRemote.Core
 {
@@ -40,20 +42,20 @@ namespace KodiRemote.Core
                 RemoteEndPoint = new IPEndPoint(IPAddress.Broadcast, 7)
             };
 
-            socketEventArg.Completed += socketEventArg_Completed;
+            socketEventArg.Completed += SocketEventArg_Completed;
 
             var socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+#if SILVERLIGHT
             socket.SetNetworkRequirement(NetworkSelectionCharacteristics.NonCellular);
+#endif
             socketEventArg.SetBuffer(payload, 0, payload.Length);
             socket.ConnectAsync(socketEventArg);
         }
 
-        private static void socketEventArg_Completed(object sender, SocketAsyncEventArgs e)
+        private static void SocketEventArg_Completed(object sender, SocketAsyncEventArgs e)
         {
             Socket socket = sender as Socket;
-            if (socket == null) return;
-
-            socket.Dispose();
+            socket?.Dispose();
         }
     }
 }

@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{11D38EE0-BAD1-414C-BFC5-2AA12BEDFA6A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KodiRemote.Core</RootNamespace>
+    <AssemblyName>KodiRemote.Uwp.Core</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.15063.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\KodiRemote.Core\Base\Parameters.cs">
+      <Link>Base\Parameters.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Base\RandomNumber.cs">
+      <Link>Base\RandomNumber.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Commands\Addons.cs">
+      <Link>Commands\Addons.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Commands\Application.cs">
+      <Link>Commands\Application.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Commands\AudioLibrary.cs">
+      <Link>Commands\AudioLibrary.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Commands\CommandCollection.cs">
+      <Link>Commands\CommandCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Commands\Files.cs">
+      <Link>Commands\Files.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Commands\GlobalTypes.cs">
+      <Link>Commands\GlobalTypes.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Commands\Gui.cs">
+      <Link>Commands\Gui.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Commands\Input.cs">
+      <Link>Commands\Input.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Commands\JsonRpc.cs">
+      <Link>Commands\JsonRpc.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Commands\Kodi.cs">
+      <Link>Commands\Kodi.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Commands\Player.cs">
+      <Link>Commands\Player.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Commands\Playlist.cs">
+      <Link>Commands\Playlist.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Commands\System.cs">
+      <Link>Commands\System.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Commands\VideoLibrary.cs">
+      <Link>Commands\VideoLibrary.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Connection.cs">
+      <Link>Connection.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Model\Addon.cs">
+      <Link>Model\Addon.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Model\Audio.cs">
+      <Link>Model\Audio.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Model\Global.cs">
+      <Link>Model\Global.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Model\Item.cs">
+      <Link>Model\Item.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Model\Library.cs">
+      <Link>Model\Library.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Model\List.cs">
+      <Link>Model\List.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Model\Media.cs">
+      <Link>Model\Media.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Model\Player.cs">
+      <Link>Model\Player.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Model\Playlist.cs">
+      <Link>Model\Playlist.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Model\PrepareDownload.cs">
+      <Link>Model\PrepareDownload.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Model\System.cs">
+      <Link>Model\System.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Model\Version.cs">
+      <Link>Model\Version.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Model\Video.cs">
+      <Link>Model\Video.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Requests\MethodMessage.cs">
+      <Link>Requests\MethodMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Requests\Parameters.cs">
+      <Link>Requests\Parameters.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Requests\Request.cs">
+      <Link>Requests\Request.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Requests\RequestException.cs">
+      <Link>Requests\RequestException.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Requests\TimeoutException.cs">
+      <Link>Requests\TimeoutException.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Responses\ApplicationPropertiesResponseMessage.cs">
+      <Link>Responses\ApplicationPropertiesResponseMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Responses\AudioVideoResponse.cs">
+      <Link>Responses\AudioVideoResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Responses\BasicResponseMessage.cs">
+      <Link>Responses\BasicResponseMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Responses\GetItemResponse.cs">
+      <Link>Responses\GetItemResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Responses\ResponseMessageBase.cs">
+      <Link>Responses\ResponseMessageBase.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Responses\SingleValueResponseMessage.cs">
+      <Link>Responses\SingleValueResponseMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\Settings.cs">
+      <Link>Settings.cs</Link>
+    </Compile>
+    <Compile Include="..\KodiRemote.Core\WakeOnLan.cs">
+      <Link>WakeOnLan.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\KodiRemote.Uwp.Core.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>5.3.3</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>10.0.2</Version>
+    </PackageReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
