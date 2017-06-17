@@ -5,6 +5,7 @@ using KodiRemote.Uwp.Addons;
 using KodiRemote.Uwp.AppSettings;
 using KodiRemote.Uwp.Core;
 using KodiRemote.Uwp.Movies;
+using KodiRemote.Uwp.Musics;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -79,18 +80,18 @@ namespace KodiRemote.Uwp
 
         #endregion
 
-        #region MusicCommand
+        #region MusicsCommand
 
-        private ICommand _musicCommand;
+        private ICommand _musicsCommand;
 
-        public ICommand MusicCommand
+        public ICommand MusicsCommand
         {
-            get { return _musicCommand ?? (_musicCommand = new Command(GoToMusic)); }
+            get { return _musicsCommand ?? (_musicsCommand = new Command(GoToMusics)); }
         }
 
-        private void GoToMusic(object o)
+        private void GoToMusics(object o)
         {
-            // Frame.Navigate(typeof(PageMusics));
+            Frame.Navigate(typeof(PageMusics));
         }
 
         #endregion

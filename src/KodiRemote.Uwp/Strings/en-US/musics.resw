@@ -117,28 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About.Text" xml:space="preserve">
-    <value>About</value>
+  <data name="Albums.Header" xml:space="preserve">
+    <value>Albums</value>
   </data>
-  <data name="Addons.Text" xml:space="preserve">
-    <value>Addons</value>
+  <data name="Artists.Header" xml:space="preserve">
+    <value>Artists</value>
   </data>
-  <data name="Movies.Text" xml:space="preserve">
-    <value>Movies</value>
+  <data name="Genres.Header" xml:space="preserve">
+    <value>Genres</value>
   </data>
-  <data name="Musics.Text" xml:space="preserve">
-    <value>Musics</value>
+  <data name="MusicsTitleCaps.Text" xml:space="preserve">
+    <value>MUSIC</value>
   </data>
-  <data name="Playlists.Text" xml:space="preserve">
-    <value>Playlists</value>
-  </data>
-  <data name="RemoteControl.Text" xml:space="preserve">
-    <value>Remote control</value>
-  </data>
-  <data name="Settings.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="TvShows.Text" xml:space="preserve">
-    <value>TV Shows</value>
+  <data name="Remote.Label" xml:space="preserve">
+    <value>Remote</value>
   </data>
 </root>

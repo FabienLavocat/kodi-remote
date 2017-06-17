@@ -115,6 +115,7 @@
     <Compile Include="Core\ConnectionStatus.cs" />
     <Compile Include="Core\Context.cs" />
     <Compile Include="Core\Extended.cs" />
+    <Compile Include="Core\Group.cs" />
     <Compile Include="Core\Helpers.cs" />
     <Compile Include="Core\KodiConnection.cs" />
     <Compile Include="Core\NotifyPropertyChanged.cs" />
@@ -129,6 +130,18 @@
     </Compile>
     <Compile Include="Movies\PageRecentlyAdded.xaml.cs">
       <DependentUpon>PageRecentlyAdded.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Musics\PageAlbum.xaml.cs">
+      <DependentUpon>PageAlbum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Musics\PageArtist.xaml.cs">
+      <DependentUpon>PageArtist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Musics\PageGenre.xaml.cs">
+      <DependentUpon>PageGenre.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Musics\PageMusics.xaml.cs">
+      <DependentUpon>PageMusics.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageAbout.xaml.cs">
       <DependentUpon>PageAbout.xaml</DependentUpon>
@@ -158,6 +171,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="KodiRemote.Uwp_TemporaryKey.pfx" />
+    <PRIResource Include="Strings\en-US\musics.resw" />
     <PRIResource Include="Strings\en-US\movies.resw">
       <SubType>Designer</SubType>
     </PRIResource>
@@ -206,6 +220,16 @@
     <Content Include="Assets\MainMenu\appbar.tv.png" />
     <Content Include="Assets\MainMenu\appbar.tv.remote.png" />
     <Content Include="Assets\MainMenu\xbmc.png" />
+    <Content Include="Assets\music\album-selected.png" />
+    <Content Include="Assets\music\album.png" />
+    <Content Include="Assets\music\artist-selected.png" />
+    <Content Include="Assets\music\artist-white.png" />
+    <Content Include="Assets\music\artist.png" />
+    <Content Include="Assets\music\genre-selected.png" />
+    <Content Include="Assets\music\genre-white.png" />
+    <Content Include="Assets\music\genre.png" />
+    <Content Include="Assets\music\song-selected.png" />
+    <Content Include="Assets\music\song.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\Square150x150Logo.scale-100.png" />
     <Content Include="Assets\SquareTile150x150.png" />
@@ -289,6 +313,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Musics\PageAlbum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Musics\PageArtist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Musics\PageGenre.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Musics\PageMusics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageAbout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -316,6 +356,11 @@
     <Page Include="Resources\Converters.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\LongListSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="Resources\Movies.xaml">
       <SubType>Designer</SubType>
@@ -365,6 +410,9 @@
     <SDKReference Include="WindowsMobile, Version=10.0.15063.0">
       <Name>Windows Mobile Extensions for the UWP</Name>
     </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TvShows\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

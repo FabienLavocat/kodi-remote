@@ -11,8 +11,8 @@
                 <ResourceDictionary Source="Resources/Main.xaml" />
                 <ResourceDictionary Source="Resources/Welcome.xaml" />
                 <ResourceDictionary Source="Resources/Remote.xaml" />
-                <!--<ResourceDictionary Source="Resources/LongListSelector.xaml" />
-                <ResourceDictionary Source="Resources/TvShows.xaml" />-->
+                <ResourceDictionary Source="Resources/LongListSelector.xaml" />
+                <!--<ResourceDictionary Source="Resources/TvShows.xaml" />-->
                 <ResourceDictionary Source="Resources/Movies.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

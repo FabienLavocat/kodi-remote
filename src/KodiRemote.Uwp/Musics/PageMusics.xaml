@@ -1,0 +1,197 @@
+﻿<Page x:Name="Page"
+      x:Class="KodiRemote.Uwp.Musics.PageMusics"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+
+    <Page.Resources>
+
+        <DataTemplate x:Key="ArtistItemTemplate">
+            <Button Style="{StaticResource HorizontalButtonStyle}"
+                    Click="ArtistButton_Click"
+                    HorizontalAlignment="Stretch">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Border Height="40"
+                            Width="40"
+                            Background="#8E8E93"
+                            CornerRadius="12">
+                        <Image Source="/Assets/music/artist-white.png" />
+                    </Border>
+
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding ArtistName}"
+                               VerticalAlignment="Center"
+                               Margin="10,0" />
+
+                    <TextBlock Grid.Column="2"
+                               FontFamily="Segoe UI Symbol"
+                               Text="&#xe23a;"
+                               Foreground="#C7C7C7"
+                               VerticalAlignment="Center" />
+                </Grid>
+            </Button>
+        </DataTemplate>
+
+        <DataTemplate x:Key="AlbumItemTemplate">
+            <Button Style="{StaticResource HorizontalButtonStyle}"
+                    Click="AlbumButton_Click">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Stretch="Fill"
+                           Width="90"
+                           Height="90">
+                        <Image.Source>
+                            <BitmapImage UriSource="{Binding Thumbnail}" />
+                        </Image.Source>
+                    </Image>
+
+                    <StackPanel Grid.Column="1"
+                                Margin="10,0,0,0"
+                                VerticalAlignment="Center">
+                        <TextBlock Text="{Binding Value.Title}"
+                                   Foreground="Black"
+                                   FontSize="24" />
+                        <TextBlock Text="{Binding Value.DisplayArtist}"
+                                   Foreground="#828385"
+                                   FontSize="18" />
+
+                    </StackPanel>
+                </Grid>
+            </Button>
+        </DataTemplate>
+
+        <DataTemplate x:Key="MusicGenreItemTemplate">
+            <Button Style="{StaticResource HorizontalButtonStyle}"
+                    Click="GenreButton_Click">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Border Height="40"
+                            Width="40"
+                            Background="#8E8E93"
+                            CornerRadius="12">
+                        <Image Source="/Assets/music/genre-white.png" />
+                    </Border>
+
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Title}"
+                               VerticalAlignment="Center"
+                               Margin="10,0" />
+
+                    <TextBlock Grid.Column="2"
+                               FontFamily="Segoe UI Symbol"
+                               Text="&#xe23a;"
+                               Foreground="#C7C7C7"
+                               VerticalAlignment="Center" />
+                </Grid>
+            </Button>
+        </DataTemplate>
+
+    </Page.Resources>
+
+    <Grid Margin="0,-1,0,0"
+          Background="#EFEFF4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Background="#F8F8F8"
+                BorderBrush="#B2B2B2"
+                BorderThickness="0,0,0,2"
+                Padding="15">
+
+            <TextBlock x:Uid="/musics/MusicsTitleCaps"
+                       Text="MUSICS"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="#282828"
+                       FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                       FontSize="22"
+                       FontWeight="Bold" />
+        </Border>
+
+        <Pivot x:Name="MusicPivot"
+               Grid.Row="1">
+            <Pivot.Background>
+                <LinearGradientBrush StartPoint="0,0"
+                                     EndPoint="0,1">
+                    <GradientStop Offset="0"
+                                  Color="#11000000" />
+                    <GradientStop Offset=".05"
+                                  Color="#00000000" />
+                </LinearGradientBrush>
+            </Pivot.Background>
+
+            <PivotItem x:Uid="/musics/Artists"
+                       x:Name="PivotArtists"
+                       Margin="0,0,0,0"
+                       Header="Artists">
+
+                <ListView ItemsSource="{Binding Artists, ElementName=Page}"
+                          ItemTemplate="{StaticResource ArtistItemTemplate}"
+                          SelectionMode="None"
+                          IsItemClickEnabled="True">
+                </ListView>
+                
+                <!--<LongListSelector ItemsSource="{Binding Artists}"
+                                  Style="{StaticResource GroupingLongListSelectorStyle}"
+                                  ItemTemplate="{StaticResource ArtistItemTemplate}" />-->
+            </PivotItem>
+
+            <PivotItem x:Uid="/musics/Albums"
+                       x:Name="PivotAlbums"
+                       Margin="0,0,0,0"
+                       Header="Albums">
+                <!--<LongListSelector ItemsSource="{Binding Albums}"
+                                  Style="{StaticResource GroupingLongListSelectorStyle}"
+                                  ItemTemplate="{StaticResource AlbumItemTemplate}" />-->
+            </PivotItem>
+
+            <PivotItem x:Uid="/musics/Genres"
+                       x:Name="PivotGenres"
+                       Header="Genres"
+                       Margin="0,0,0,0"
+                       BorderBrush="Red"
+                       BorderThickness="5">
+                <ScrollViewer>
+                    <ItemsControl ItemsSource="{Binding Genres}"
+                                  ItemTemplate="{StaticResource MusicGenreItemTemplate}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Margin="0,10" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </ScrollViewer>
+            </PivotItem>
+        </Pivot>
+
+    </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar Background="White"
+                    Foreground="Black">
+            <AppBarButton x:Uid="/musics/Remote"
+                          Label="Remote"
+                          Click="RemoteButton_Click"
+                          Icon="CellPhone" />
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
