@@ -4,7 +4,6 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:movies="using:KodiRemote.Uwp.Movies"
       xmlns:controls="using:KodiRemote.Uwp.Controls"
-      xmlns:rating="using:XamlBrewer.Uwp.Controls"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d"
@@ -230,9 +229,11 @@
                                    VerticalAlignment="Center"
                                    Text="Rating" />
 
-                        <rating:Rating Grid.Column="2"
-                                       Margin="15,0"
-                                       Value="{Binding Rating}" />
+                        <controls:Rating Grid.Column="2"
+                                         Margin="15,0"
+                                         Maximum="5"
+                                         Foreground="#FF0078D7"
+                                         Value="{Binding Rating}" />
 
                         <TextBlock Grid.Column="3"
                                    Text="{Binding Votes}"

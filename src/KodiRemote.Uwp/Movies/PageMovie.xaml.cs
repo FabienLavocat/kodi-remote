@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text.RegularExpressions;
 using KodiRemote.Uwp.Core;
 using MyToolkit.Multimedia;
 using Windows.ApplicationModel.Resources;
@@ -134,7 +135,7 @@ namespace KodiRemote.Uwp.Movies
         }
 
         public static readonly DependencyProperty RatingProperty =
-            DependencyProperty.Register(nameof(Rating), typeof(double), typeof(PageMovie), new PropertyMetadata(null));
+            DependencyProperty.Register(nameof(Rating), typeof(double), typeof(PageMovie), new PropertyMetadata(0));
 
         #endregion
 
@@ -244,14 +245,16 @@ namespace KodiRemote.Uwp.Movies
                 if (!string.IsNullOrWhiteSpace(Movie.Movie.Trailer))
                 {
                     TrailerVisibility = Visibility.Visible;
-                    int index = Movie.Movie.Trailer.IndexOf("videoid=", StringComparison.Ordinal);
-                    if (index < 0)
-                        index = Movie.Movie.Trailer.IndexOf("video_id=", StringComparison.Ordinal);
-                    _youtubeId = Movie.Movie.Trailer.Substring(index);
-                    index = _youtubeId.IndexOf('=');
-                    _youtubeId = _youtubeId.Substring(index + 1);
-
-                    ImageTrailer = YouTube.GetThumbnailUri(_youtubeId);
+                    Regex regex = new Regex(@"video[_]?id=(?<youtubeId>[^&]*)");
+                    if (regex.IsMatch(Movie.Movie.Trailer))
+                    {
+                        Match match = regex.Match(Movie.Movie.Trailer);
+                        if (match.Groups["youtubeId"].Success)
+                        {
+                            _youtubeId = match.Groups["youtubeId"].Value;
+                            ImageTrailer = YouTube.GetThumbnailUri(_youtubeId);
+                        }
+                    }
                 }
             }
             catch (Exception ex)
