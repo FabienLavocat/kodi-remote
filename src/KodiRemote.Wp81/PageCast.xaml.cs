@@ -77,8 +77,8 @@ namespace KodiRemote.Wp81
                 }
                 else if (type.Equals("movie", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    var episode = await App.Context.Connection.Xbmc.VideoLibrary.GetEpisodeDetailsAsync(id, VideoFieldsEpisode.cast);
-                    cast = episode.EpisodeDetails.Cast;
+                    var movie = await App.Context.Connection.Xbmc.VideoLibrary.GetMovieDetailsAsync(id, VideoFieldsMovie.cast);
+                    cast = movie.Cast;
                 }
                 else
                 {
