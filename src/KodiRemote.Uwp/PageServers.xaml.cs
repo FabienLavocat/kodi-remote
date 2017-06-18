@@ -5,6 +5,7 @@ using System.Windows.Input;
 using KodiRemote.Core;
 using KodiRemote.Uwp.Core;
 using Windows.ApplicationModel.Resources;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -59,6 +60,11 @@ namespace KodiRemote.Uwp
             {
                 Frame.BackStack.Clear();
             }
+
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                    Frame.CanGoBack ?
+                    AppViewBackButtonVisibility.Visible :
+                    AppViewBackButtonVisibility.Collapsed;
 
             Context = App.Context;
 

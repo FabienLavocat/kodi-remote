@@ -24,12 +24,12 @@ namespace KodiRemote.Uwp
         private List<NavMenuItem> navlist = new List<NavMenuItem>(
             new[]
             {
-                new NavMenuItem()
-                {
-                    Symbol = Symbol.Contact,
-                    Label = "TV Shows",
-                    DestPage = typeof(PageAbout)
-                },
+                //new NavMenuItem()
+                //{
+                //    Symbol = Symbol.Contact,
+                //    Label = "TV Shows",
+                //    DestPage = typeof(PageAbout)
+                //},
                 new NavMenuItem()
                 {
                     Symbol = Symbol.Video,
@@ -48,12 +48,12 @@ namespace KodiRemote.Uwp
                     Label = "Remote Control",
                     DestPage = typeof(PageRemote)
                 },
-                new NavMenuItem()
-                {
-                    Symbol = Symbol.Bullets,
-                    Label = "Playlists",
-                    DestPage = typeof(PageAbout)
-                },
+                //new NavMenuItem()
+                //{
+                //    Symbol = Symbol.Bullets,
+                //    Label = "Playlists",
+                //    DestPage = typeof(PageAbout)
+                //},
                 new NavMenuItem()
                 {
                     Symbol = Symbol.More,
@@ -124,11 +124,10 @@ namespace KodiRemote.Uwp
             AppFrame.Margin = new Thickness(margin.Left, margin.Top + extraPadding, margin.Right, margin.Bottom);
             margin = TogglePaneButton.Margin;
             TogglePaneButton.Margin = new Thickness(margin.Left, margin.Top + extraPadding, margin.Right, margin.Bottom);
-
         }
-        
-        #region BackRequested Handlers
 
+        #region BackRequested Handlers
+        
         private void SystemNavigationManager_BackRequested(object sender, BackRequestedEventArgs e)
         {
             bool handled = e.Handled;
@@ -148,6 +147,12 @@ namespace KodiRemote.Uwp
                 // If not, set the event to handled and go back to the previous page in the app.
                 handled = true;
                 AppFrame.GoBack();
+            }
+
+            if (Frame.CanGoBack && !handled)
+            {
+                handled = true;
+                Frame.GoBack();
             }
         }
 
@@ -223,50 +228,49 @@ namespace KodiRemote.Uwp
             }
         }
 
-        protected async override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
-            {
-                var statusbar = Windows.UI.ViewManagement.StatusBar.GetForCurrentView();
-                statusbar.BackgroundColor = new Windows.UI.Color() { R = 76, G = 155, B = 214 };
-                statusbar.BackgroundOpacity = 1;
-                statusbar.ForegroundColor = Windows.UI.Colors.White;
-            }
+        //protected async override void OnNavigatedTo(NavigationEventArgs e)
+        //{
+        //    if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+        //    {
+        //        var statusbar = Windows.UI.ViewManagement.StatusBar.GetForCurrentView();
+        //        statusbar.BackgroundColor = new Windows.UI.Color() { R = 76, G = 155, B = 214 };
+        //        statusbar.BackgroundOpacity = 1;
+        //        statusbar.ForegroundColor = Windows.UI.Colors.White;
+        //    }
 
-            _connection = App.Context.Connections.FirstOrDefault(c => c.Id.Equals(e.Parameter?.ToString(), StringComparison.OrdinalIgnoreCase));
+        //    _connection = App.Context.Connections.FirstOrDefault(c => c.Id.Equals(e.Parameter?.ToString(), StringComparison.OrdinalIgnoreCase));
 
-            NavMenuList.SelectedIndex = 0;
-            navlist[0].IsSelected = true;
-            AppFrame.Navigate(navlist[0].DestPage, navlist[0].Arguments);
+        //    NavMenuList.SelectedIndex = 0;
+        //    navlist[0].IsSelected = true;
+        //    AppFrame.Navigate(navlist[0].DestPage, navlist[0].Arguments);
+
+        //    if (_connection != null)
+        //    {
+        //        if (Frame.CanGoBack)
+        //            Frame.GoBack();
+        //        return;
+        //    }
+
+        //    //if (_connection.Kodi.IsMocked)
+        //    //{
+        //    //    ButtonMovies.Visibility = Visibility.Collapsed;
+        //    //    ButtonMusic.Visibility = Visibility.Collapsed;
+        //    //    ButtonAddons.Visibility = Visibility.Collapsed;
+        //    //    ButtonPlaylists.Visibility = Visibility.Collapsed;
+        //    //}
+        //    //else  
+        //    //{
+        //    //    ButtonMovies.Visibility = Visibility.Visible;
+        //    //    ButtonMusic.Visibility = Visibility.Visible;
+        //    //    ButtonAddons.Visibility = Visibility.Visible;
+        //    //    ButtonPlaylists.Visibility = Visibility.Visible;
+        //    //}
             
-            if (_connection != null)
-            {
-                //if (_connection.Kodi.IsMocked)
-                //{
-                //    ButtonMovies.Visibility = Visibility.Collapsed;
-                //    ButtonMusic.Visibility = Visibility.Collapsed;
-                //    ButtonAddons.Visibility = Visibility.Collapsed;
-                //    ButtonPlaylists.Visibility = Visibility.Collapsed;
-                //}
-                //else  
-                //{
-                //    ButtonMovies.Visibility = Visibility.Visible;
-                //    ButtonMusic.Visibility = Visibility.Visible;
-                //    ButtonAddons.Visibility = Visibility.Visible;
-                //    ButtonPlaylists.Visibility = Visibility.Visible;
-                //}
+        //    App.Context.SetDefaultConnection(_connection);
+        //    App.Context.Save();
 
-                //BtActions.DataContext = _connection;
-                App.Context.SetDefaultConnection(_connection);
-                App.Context.Save();
-
-                await _connection.TestConnectionAsync();
-                return;
-            }
-
-            if (Frame.CanGoBack)
-                Frame.GoBack();
-        }
+        //    await _connection.TestConnectionAsync();
+        //}
 
         #endregion
 

@@ -69,11 +69,7 @@ namespace KodiRemote.Uwp
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
-
-                // Register a handler for BackRequested events and set the
-                // visibility of the Back button
-                SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
-
+                
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
                     rootFrame.CanGoBack ?
                     AppViewBackButtonVisibility.Visible :
