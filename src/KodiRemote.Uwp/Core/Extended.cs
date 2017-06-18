@@ -6,7 +6,7 @@ namespace KodiRemote.Uwp.Core
     public class ExtendedVideoDetailsTvShow : Extended<VideoDetailsTvShow>
     {
         public ExtendedVideoDetailsTvShow(VideoDetailsTvShow value)
-            : base(value, value.Art.Banner, "/Assets/Default/DefaultTvShow.png")
+            : base(value, value.Art.Banner, "ms-appx:///Assets/Default/DefaultTvShow.png")
         {
         }
     }
@@ -14,7 +14,7 @@ namespace KodiRemote.Uwp.Core
     public class ExtendedAudioDetailsAlbum : Extended<AudioDetailsAlbum>
     {
         public ExtendedAudioDetailsAlbum(AudioDetailsAlbum value)
-            : base(value, value.Thumbnail, "/Assets/Default/DefaultAlbumCover.png")
+            : base(value, value.Thumbnail, "ms-appx:///Assets/Default/DefaultAlbumCover.png")
         {
         }
     }
@@ -22,7 +22,7 @@ namespace KodiRemote.Uwp.Core
     public class ExtendedAudioDetailsSong : Extended<AudioDetailsSong>
     {
         public ExtendedAudioDetailsSong(AudioDetailsSong value)
-            : base(value, value.Thumbnail, "/Assets/Default/DefaultAlbumCover.png")
+            : base(value, value.Thumbnail, "ms-appx:///Assets/Default/DefaultAlbumCover.png")
         {
         }
     }
@@ -30,7 +30,7 @@ namespace KodiRemote.Uwp.Core
     public class ExtendedVideoDetailsMovieSet : Extended<VideoDetailsMovieSet>
     {
         public ExtendedVideoDetailsMovieSet(VideoDetailsMovieSet value)
-            : base(value, value.Thumbnail, "/Assets/Default/DefaultMovieSmall.png")
+            : base(value, value.Thumbnail, "ms-appx:///Assets/Default/DefaultMovieSmall.png")
         {
         }
     }
@@ -38,7 +38,7 @@ namespace KodiRemote.Uwp.Core
     public class ExtendedAddonDetailsBase : Extended<AddonDetailsBase>
     {
         public ExtendedAddonDetailsBase(AddonDetailsBase value)
-            : base(value, value.Thumbnail, "/Assets/MainMenu/appbar.deeplink.png")
+            : base(value, value.Thumbnail, "ms-appx:///Assets/MainMenu/appbar.deeplink.png")
         {
         }
     }
@@ -46,7 +46,7 @@ namespace KodiRemote.Uwp.Core
     public class ExtendedVideoCast : Extended<VideoCast>
     {
         public ExtendedVideoCast(VideoCast value)
-            : base(value, value.Thumbnail, "/Assets/Default/DefaultCast.png")
+            : base(value, value.Thumbnail, "ms-appx:///Assets/Default/DefaultCast.png")
         {
         }
     }
@@ -56,7 +56,7 @@ namespace KodiRemote.Uwp.Core
         public VideoDetailsMovie Movie { get; private set; }
 
         public ExtendedVideoDetailsMovie(VideoDetailsMovie movie, bool loadDetails)
-            : base(null, "/Assets/Default/DefaultMovieSmall.png")
+            : base(null, "ms-appx:///Assets/Default/DefaultMovieSmall.png")
         {
             LoadMovie(movie, loadDetails);
         }
@@ -68,7 +68,7 @@ namespace KodiRemote.Uwp.Core
             else
                 Movie = movie;
 
-            NotifyPropertyHasChanged("Movie");
+            NotifyPropertyHasChanged(nameof(Movie));
 
             LoadThumbailUrl(Movie.Thumbnail);
         }
@@ -110,11 +110,9 @@ namespace KodiRemote.Uwp.Core
 
         protected Extended(T value, string thumbnail, string defaultThumbnail = null)
             : base(thumbnail, defaultThumbnail)
-
         {
             Value = value;
-
-            NotifyPropertyHasChanged("Value");
+            NotifyPropertyHasChanged(nameof(Value));
         }
     }
 }
