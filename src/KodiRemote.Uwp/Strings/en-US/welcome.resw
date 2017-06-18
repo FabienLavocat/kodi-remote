@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddButton.Content" xml:space="preserve">
-    <value>Add Kodi Server</value>
+    <value>Add a new Kodi Server</value>
   </data>
   <data name="AppTittle.Text" xml:space="preserve">
     <value>Media Center Remote</value>

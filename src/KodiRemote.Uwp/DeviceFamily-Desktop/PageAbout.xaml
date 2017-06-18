@@ -1,0 +1,297 @@
+﻿<Page x:Class="KodiRemote.Uwp.PageAbout"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+
+    <Grid Background="#EFEFF4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Background="#6CBDBB"
+                BorderBrush="#22000000"
+                BorderThickness="0,0,0,2"
+                Margin="0,0,0,-2"
+                Padding="15">
+
+            <TextBlock x:Uid="/about/Title"
+                       Text="About"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       Margin="20,0,0,0"
+                       Style="{StaticResource TextExtraLargeStyle}" />
+        </Border>
+
+        <ScrollViewer Grid.Row="1"
+                      Margin="0">
+            <StackPanel>
+
+                <Border CornerRadius="40"
+                        Height="210"
+                        Width="210"
+                        Margin="0,20">
+                    <Border.Background>
+                        <ImageBrush ImageSource="Assets/Logo.210x210.png" />
+                    </Border.Background>
+                </Border>
+
+                <TextBlock x:Name="TxtApplicationTitle"
+                           Margin="0,0,0,20"
+                           Foreground="#6D6D72"
+                           HorizontalAlignment="Center"
+                           FontFamily="Segoe WP Semibold"
+                           FontSize="24" />
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Column="0"
+                            Grid.Row="0"
+                            Style="{StaticResource BlockButtonStyle}"
+                            Click="BlogButtonClick">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Border Height="45"
+                                    Width="45"
+                                    Background="#8E8E93"
+                                    CornerRadius="12">
+                                <Border BorderBrush="White"
+                                        BorderThickness="2"
+                                        CornerRadius="12"
+                                        Margin="7">
+                                    <TextBlock FontFamily="Segoe UI"
+                                               Text="C"
+                                               FontSize="20"
+                                               Margin="0,0,2,2"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Foreground="White" />
+                                </Border>
+                            </Border>
+                            <TextBlock x:Uid="/about/Copyright"
+                                       Grid.Column="1"
+                                       Text="Copyright 2017"
+                                       VerticalAlignment="Center"
+                                       Margin="10,0" />
+                            <TextBlock Grid.Column="2"
+                                       FontFamily="Segoe UI Symbol"
+                                       Text="&#xe23a;"
+                                       Foreground="#C7C7C7"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                    </Button>
+
+                    <Button Grid.Column="1"
+                            Grid.Row="0"
+                            Style="{StaticResource BlockButtonStyle}"
+                            Click="DownloadButtonClick">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border Height="45"
+                                    Width="45"
+                                    Background="#007AFF"
+                                    CornerRadius="12">
+                                <TextBlock FontFamily="Segoe UI Symbol"
+                                           Text="&#xE118;"
+                                           FontSize="26"
+                                           Foreground="White"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
+                            </Border>
+
+                            <TextBlock x:Uid="/about/GetKodi"
+                                       Grid.Column="1"
+                                       Text="Get Kodi"
+                                       VerticalAlignment="Center"
+                                       Margin="10,0" />
+                            <TextBlock Grid.Column="2"
+                                       FontFamily="Segoe UI Symbol"
+                                       Text="&#xe23a;"
+                                       Foreground="#C7C7C7"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                    </Button>
+
+                    <Button Grid.Column="0"
+                            Grid.Row="1"
+                            Style="{StaticResource BlockButtonStyle}"
+                            Click="ReviewButtonClick">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border Height="45"
+                                    Width="45"
+                                    Background="#5856D6"
+                                    CornerRadius="12">
+                                <TextBlock FontFamily="Segoe UI Symbol"
+                                           Text="&#xE1CF;"
+                                           FontSize="24"
+                                           Foreground="White"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
+                            </Border>
+
+                            <TextBlock x:Uid="/about/Review"
+                                       Grid.Column="1"
+                                       Text="Review the app"
+                                       VerticalAlignment="Center"
+                                       Margin="10,0" />
+                            <TextBlock Grid.Column="2"
+                                       FontFamily="Segoe UI Symbol"
+                                       Text="&#xe23a;"
+                                       Foreground="#C7C7C7"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                    </Button>
+
+                    <Button Grid.Column="1"
+                            Grid.Row="1"
+                            Style="{StaticResource BlockButtonStyle}"
+                            Click="ShareButtonClick">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border Height="45"
+                                    Width="45"
+                                    Background="#4CD964"
+                                    CornerRadius="12">
+                                <TextBlock FontFamily="Segoe UI Symbol"
+                                           Text="&#xE1CA;"
+                                           FontSize="26"
+                                           Foreground="White"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
+                            </Border>
+
+                            <TextBlock x:Uid="/about/Share"
+                                       Grid.Column="1"
+                                       Text="Share"
+                                       VerticalAlignment="Center"
+                                       Margin="10,0" />
+                            <TextBlock Grid.Column="2"
+                                       FontFamily="Segoe UI Symbol"
+                                       Text="&#xe23a;"
+                                       Foreground="#C7C7C7"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                    </Button>
+
+                    <Button Grid.Column="0"
+                            Grid.Row="2"
+                            Style="{StaticResource BlockButtonStyle}"
+                            Click="GitHubButtonClick">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Border Height="45"
+                                    Width="45"
+                                    CornerRadius="12">
+                                <Image Source="/Assets/github.png" />
+                            </Border>
+                            <TextBlock x:Uid="/about/GitHubProject"
+                                       Grid.Column="1"
+                                       Text="GitHub Project"
+                                       VerticalAlignment="Center"
+                                       Margin="10,0" />
+                            <TextBlock Grid.Column="2"
+                                       FontFamily="Segoe UI Symbol"
+                                       Text="&#xe23a;"
+                                       Foreground="#C7C7C7"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                    </Button>
+
+                    <Button Grid.Column="1"
+                            Grid.Row="2"
+                            Style="{StaticResource BlockButtonStyle}"
+                            Click="FacebookButtonClick">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Border Height="45"
+                                    Width="45"
+                                    Background="#4862A3"
+                                    CornerRadius="12">
+                                <Image Source="/Assets/facebook.png" />
+                            </Border>
+                            <TextBlock x:Uid="/about/Facebook"
+                                       Grid.Column="1"
+                                       Text="Facebook Page"
+                                       VerticalAlignment="Center"
+                                       Margin="10,0" />
+                            <TextBlock Grid.Column="2"
+                                       FontFamily="Segoe UI Symbol"
+                                       Text="&#xe23a;"
+                                       Foreground="#C7C7C7"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                    </Button>
+
+                    <Button Grid.Column="0"
+                            Grid.Row="3"
+                            Style="{StaticResource BlockButtonStyle}"
+                            Click="TwitterButtonClick">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Border Height="45"
+                                    Width="45"
+                                    Background="#1DA1F2"
+                                    CornerRadius="12">
+                                <Image Source="/Assets/twitter.png" />
+                            </Border>
+                            <TextBlock Grid.Column="1"
+                                       Text="@FabienLavocat"
+                                       VerticalAlignment="Center"
+                                       Margin="10,0" />
+                            <TextBlock Grid.Column="2"
+                                       FontFamily="Segoe UI Symbol"
+                                       Text="&#xe23a;"
+                                       Foreground="#C7C7C7"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                    </Button>
+
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

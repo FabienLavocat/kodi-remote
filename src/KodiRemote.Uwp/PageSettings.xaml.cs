@@ -176,7 +176,7 @@ namespace KodiRemote.Uwp
                 App.Context.Connections.Add(_connection);
 
             App.Context.Save();
-            
+
             if (Frame.CanGoBack)
                 Frame.GoBack();
         }

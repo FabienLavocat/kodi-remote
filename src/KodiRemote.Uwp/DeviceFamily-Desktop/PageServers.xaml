@@ -18,26 +18,14 @@
                 BorderBrush="#22000000"
                 BorderThickness="0,0,0,2"
                 Margin="0,0,0,-2"
-                Padding="20,8">
-            <Grid>
-                <TextBlock x:Uid="ApplicationTitleCaps"
-                           Text="MEDIA CENTER REMOTE"
-                           HorizontalAlignment="Left"
-                           VerticalAlignment="Center"
-                           Foreground="White"
-                           FontFamily="{StaticResource PhoneFontFamilySemiLight}"
-                           FontSize="28" />
+                Padding="15">
 
-                <StackPanel Orientation="Horizontal"
-                            HorizontalAlignment="Right">
-                    <Button Click="AddButton_Click"
-                            Style="{StaticResource HeaderButtonStyle}"
-                            Content="&#xE109;" />
-                    <Button Click="AboutButton_Click"
-                            Style="{StaticResource HeaderButtonStyle}"
-                            Content="&#xE11B;" />
-                </StackPanel>
-            </Grid>
+            <TextBlock x:Uid="ApplicationTitleCaps"
+                       Text="MEDIA CENTER REMOTE"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       Style="{StaticResource TextExtraLargeStyle}" />
         </Border>
 
         <ScrollViewer Grid.Row="1">
@@ -118,4 +106,18 @@
 
         </ScrollViewer>
     </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Uid="/servers/AboutCommand"
+                          Label="About"
+                          Icon="Help"
+                          Click="AboutButton_Click" />
+
+            <AppBarButton x:Uid="/servers/NewCommand"
+                          Label="New"
+                          Click="AddButton_Click"
+                          Icon="Add" />
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>

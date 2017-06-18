@@ -132,13 +132,13 @@
   <data name="AddonIsEnabled.Text" xml:space="preserve">
     <value>Is Enabled?</value>
   </data>
-  <data name="AddonStart.Text" xml:space="preserve">
+  <data name="AddonStart.Label" xml:space="preserve">
     <value>Start</value>
   </data>
   <data name="AddonsTitle.Text" xml:space="preserve">
     <value>Addons</value>
   </data>
-  <data name="AddonStop.Text" xml:space="preserve">
+  <data name="AddonStop.Label" xml:space="preserve">
     <value>Stop</value>
   </data>
   <data name="AddonTitle.Text" xml:space="preserve">

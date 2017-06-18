@@ -7,9 +7,9 @@
       Foreground="#6D6D72"
       mc:Ignorable="d">
 
-    <Grid Margin="0,-1,0,0">
+    <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Assets/welcome.small.png"
+            <ImageBrush ImageSource="/Assets/welcome.large.png"
                         Stretch="None" />
         </Grid.Background>
         <Grid.RowDefinitions>
@@ -21,15 +21,14 @@
                 BorderBrush="#22000000"
                 BorderThickness="0,0,0,2"
                 Margin="0,0,0,-2"
-                Padding="10">
+                Padding="15">
 
             <TextBlock x:Uid="/settings/Title"
                        Text="Settings"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        Foreground="White"
-                       FontFamily="{StaticResource PhoneFontFamilySemiLight}"
-                       FontSize="28" />
+                       Style="{StaticResource TextExtraLargeStyle}" />
         </Border>
 
         <ScrollViewer Grid.Row="1">
@@ -37,33 +36,30 @@
             <StackPanel Margin="10,40">
 
                 <controls:TextBoxPlaceholder x:Uid="/settings/ServerAddress"
+                                             TabIndex="0"
                                              Text="{Binding Address, Mode=TwoWay}"
                                              Placeholder="Server Address" />
 
                 <controls:TextBoxPlaceholder x:Uid="/settings/PortNumber"
+                                             TabIndex="1"
                                              Text="{Binding Port, Mode=TwoWay}"
                                              MaxLength="6"
                                              Placeholder="Port Number"
                                              Width="290"
-                                             HorizontalAlignment="Left">
-                    <controls:TextBoxPlaceholder.InputScope>
-                        <InputScope>
-                            <InputScope.Names>
-                                <InputScopeName NameValue="Digits" />
-                            </InputScope.Names>
-                        </InputScope>
-                    </controls:TextBoxPlaceholder.InputScope>
-                </controls:TextBoxPlaceholder>
+                                             HorizontalAlignment="Left" />
 
                 <controls:TextBoxPlaceholder x:Uid="/settings/Username"
+                                             TabIndex="2"
                                              Text="{Binding Login, Mode=TwoWay, ElementName=Page}"
                                              Placeholder="Username" />
 
                 <controls:TextBoxPlaceholder x:Uid="/settings/Password"
+                                             TabIndex="3"
                                              Text="{Binding Password, Mode=TwoWay, ElementName=Page}"
                                              Placeholder="Password" />
 
                 <controls:TextBoxPlaceholder x:Uid="/settings/MACAddress"
+                                             TabIndex="4"
                                              Text="{Binding MacAddress, Mode=TwoWay, ElementName=Page}"
                                              Placeholder="MAC Address" />
 
@@ -73,19 +69,32 @@
                            Margin="12,6,0,12"
                            FontSize="16" />
 
-                <Button x:Uid="/settings/ButtonSave"
-                        Content="Save"
-                        Click="SaveButtonClick"
-                        Style="{StaticResource CleanButtonStyle}"
-                        Background="#383A3B"
-                        BorderBrush="#383A3B" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-                <Button x:Uid="/settings/ConnectivityTest"
-                        Content="Connectivity test"
-                        Click="TestButtonClick"
-                        Style="{StaticResource CleanButtonStyle}"
-                        Background="#29343A"
-                        BorderBrush="#29343A" />
+                    <Button x:Uid="/settings/ButtonSave"
+                            TabIndex="5"
+                            Grid.Column="0"
+                            Content="Save"
+                            Click="SaveButtonClick"
+                            Style="{StaticResource CleanButtonStyle}"
+                            Background="#383A3B"
+                            BorderBrush="#383A3B" />
+
+                    <Button x:Uid="/settings/ConnectivityTest"
+                            TabIndex="6"
+                            Grid.Column="1"
+                            Content="Connectivity test"
+                            Click="TestButtonClick"
+                            Style="{StaticResource CleanButtonStyle}"
+                            Background="#29343A"
+                            BorderBrush="#29343A" />
+                    
+                </Grid>
+                
             </StackPanel>
 
         </ScrollViewer>

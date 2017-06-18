@@ -32,7 +32,7 @@ namespace KodiRemote.Uwp
             }
         }
 
-        private void AddButtonClick(object o, RoutedEventArgs e)
+        private void AddButton_Click(object o, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(PageSettings), "new");
         }

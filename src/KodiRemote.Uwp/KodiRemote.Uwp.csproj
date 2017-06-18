@@ -89,10 +89,7 @@
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Addons\PageAddon.xaml.cs">
-      <DependentUpon>PageAddon.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Addons\PageAddons.xaml.cs">
+    <Compile Include="PageAddons.xaml.cs">
       <DependentUpon>PageAddons.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
@@ -101,6 +98,7 @@
     <Compile Include="Controls\LoadingIndicator.xaml.cs">
       <DependentUpon>LoadingIndicator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\NavMenuListView.cs" />
     <Compile Include="Controls\Rating.xaml.cs">
       <DependentUpon>Rating.xaml</DependentUpon>
     </Compile>
@@ -118,6 +116,7 @@
     <Compile Include="Core\Group.cs" />
     <Compile Include="Core\Helpers.cs" />
     <Compile Include="Core\KodiConnection.cs" />
+    <Compile Include="Core\NavMenuItem.cs" />
     <Compile Include="Core\NotifyPropertyChanged.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -230,13 +229,19 @@
     <Content Include="Assets\music\genre.png" />
     <Content Include="Assets\music\song-selected.png" />
     <Content Include="Assets\music\song.png" />
-    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
     <Content Include="Assets\Square150x150Logo.scale-100.png" />
     <Content Include="Assets\SquareTile150x150.png" />
     <Content Include="Assets\SquareTile71x71.png" />
     <Content Include="Assets\SquareTile71x71.scale-100.png" />
     <Content Include="Assets\twitter.png" />
     <Content Include="Assets\Logo.210x210.png" />
+    <Content Include="Assets\welcome.small.png" />
+    <Content Include="Assets\welcome.large.png" />
     <Content Include="Assets\YouTube-logo.png" />
     <Content Include="Assets\YouTube-play.png" />
     <Content Include="Properties\Default.rd.xml" />
@@ -277,13 +282,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Addons\PageAddon.xaml">
+    <Page Include="DeviceFamily-Desktop\PageAddons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageAddons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Addons\PageAddons.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="AppSettings\DeviceFamily-Desktop\PageAppSettings.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\LoadingIndicator.xaml">
       <SubType>Designer</SubType>
@@ -294,6 +303,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\TextBoxPlaceholder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeviceFamily-Desktop\PageAbout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeviceFamily-Desktop\PageServers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DeviceFamily-Desktop\PageSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DeviceFamily-Desktop\PageWelcome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -357,6 +382,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\Desktop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
     <Page Include="Resources\LongListSelector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -370,6 +400,11 @@
     <Page Include="Resources\Remote.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Shell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="Resources\Welcome.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -395,6 +430,12 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>5.3.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Animations">
+      <Version>1.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>1.4.1</Version>
     </PackageReference>
     <PackageReference Include="MyToolkit.Extended">
       <Version>2.5.16</Version>
