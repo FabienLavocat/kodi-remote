@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Phone.Devices.Notification;
+using Windows.System.Profile;
 using Windows.UI.Xaml.Media;
 
 namespace KodiRemote.Uwp.Core
@@ -51,9 +52,12 @@ namespace KodiRemote.Uwp.Core
         public static void Vibrate()
         {
             if (!App.Context.AllowVibrate) return;
-            
-            VibrationDevice v = VibrationDevice.GetDefault();
-            v.Vibrate(TimeSpan.FromMilliseconds(50));
+
+            if ("Windows.Mobile".Equals(AnalyticsInfo.VersionInfo.DeviceFamily, StringComparison.OrdinalIgnoreCase))
+            {
+                VibrationDevice v = VibrationDevice.GetDefault();
+                v.Vibrate(TimeSpan.FromMilliseconds(50));
+            }
         }
     }
 }
