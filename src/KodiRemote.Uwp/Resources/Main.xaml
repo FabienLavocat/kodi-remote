@@ -61,7 +61,7 @@
         <Setter Property="FontFamily"
                 Value="{StaticResource PhoneFontFamilySemiLight}" />
         <Setter Property="FontSize"
-                Value="{StaticResource PhoneFontSizeMedium}" />
+                Value="{StaticResource PhoneFontSizeSmall}" />
         <Setter Property="Padding"
                 Value="20,8,15,8" />
         <Setter Property="Margin"

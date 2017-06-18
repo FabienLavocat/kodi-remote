@@ -238,9 +238,7 @@ namespace KodiRemote.Uwp
             NavMenuList.SelectedIndex = 0;
             navlist[0].IsSelected = true;
             AppFrame.Navigate(navlist[0].DestPage, navlist[0].Arguments);
-
-            OpenNavePane();
-
+            
             if (_connection != null)
             {
                 //if (_connection.Kodi.IsMocked)

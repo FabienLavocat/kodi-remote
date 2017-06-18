@@ -1,0 +1,76 @@
+﻿<Page x:Name="Page"
+      x:Class="KodiRemote.Uwp.PageCast"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:controls="using:KodiRemote.Uwp.Controls"
+      mc:Ignorable="d">
+
+    <Grid Background="#EFEFF4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Background="#83A3D5"
+                BorderBrush="#22000000"
+                BorderThickness="0,0,0,2"
+                Margin="0,0,0,-2"
+                Padding="10">
+
+            <TextBlock x:Uid="Cast"
+                       Text="Cast"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                       FontSize="28" />
+        </Border>
+
+        <ScrollViewer Grid.Row="1">
+            <ItemsControl Margin="0,12"
+                          ItemsSource="{Binding Cast}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="0,0,0,1"
+                                BorderBrush="#DDDDDD">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Margin="10"
+                                       Width="75"
+                                       Stretch="UniformToFill">
+                                    <Image.Source>
+                                        <BitmapImage UriSource="{Binding Thumbnail}" />
+                                    </Image.Source>
+                                </Image>
+
+                                <StackPanel Grid.Column="1"
+                                            VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Value.Name}"
+                                               Foreground="#333333"
+                                               FontSize="24"
+                                               FontFamily="Segoe WP Bold" />
+
+                                    <TextBlock Text="{Binding Value.Role}"
+                                               Foreground="#555555"
+                                               FontSize="20"
+                                               FontFamily="Segoe WP" />
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <controls:LoadingIndicator Grid.Row="1"
+                                   IsRunning="{Binding IsLoading, ElementName=Page}"
+                                   d:IsHidden="True" />
+    </Grid>
+
+</Page>

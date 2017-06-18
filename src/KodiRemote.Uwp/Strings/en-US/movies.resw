@@ -120,17 +120,11 @@
   <data name="MoviesTitle.Text" xml:space="preserve">
     <value>Movies</value>
   </data>
-  <data name="ActionsCaps.Text" xml:space="preserve">
-    <value>ACTIONS</value>
-  </data>
-  <data name="Cast.Text" xml:space="preserve">
-    <value>Cast</value>
+  <data name="CastCaps.Text" xml:space="preserve">
+    <value>CAST</value>
   </data>
   <data name="CommandRecentlyAdded.Label" xml:space="preserve">
     <value>Recently added</value>
-  </data>
-  <data name="CommandRemote.Label" xml:space="preserve">
-    <value>Remote</value>
   </data>
   <data name="CommandSort.Label" xml:space="preserve">
     <value>Sort</value>
@@ -174,19 +168,22 @@
   <data name="Download.Text" xml:space="preserve">
     <value>Download</value>
   </data>
-  <data name="Play.Text" xml:space="preserve">
+  <data name="Play.Label" xml:space="preserve">
     <value>Play</value>
   </data>
   <data name="Remote.Text" xml:space="preserve">
     <value>Remote</value>
   </data>
-  <data name="SeeOnIMDB.Text" xml:space="preserve">
+  <data name="SeeOnIMDB.Label" xml:space="preserve">
     <value>See on IMDB</value>
   </data>
   <data name="VotesFormat" xml:space="preserve">
     <value>{0} votes</value>
   </data>
-  <data name="RecentlyAddedTitle.Text" xml:space="preserve">
-    <value>Recently Added</value>
+  <data name="InformationCaps.Text" xml:space="preserve">
+    <value>INFORMATION</value>
+  </data>
+  <data name="CommandAllMovies.Label" xml:space="preserve">
+    <value>All movies</value>
   </data>
 </root>

@@ -1,0 +1,47 @@
+﻿<Page x:Name="Page"
+      x:Class="KodiRemote.Uwp.PageCast"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+      xmlns:controls="using:KodiRemote.Uwp.Controls"
+      xmlns:local="using:KodiRemote.Uwp"
+      mc:Ignorable="d"
+      d:DataContext="{d:DesignInstance local:PageCast}">
+
+    <Grid Background="#EFEFF4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Background="#83A3D5"
+                BorderBrush="#22000000"
+                BorderThickness="0,0,0,2"
+                Margin="0,0,0,-2"
+                Padding="15">
+
+            <TextBlock x:Uid="Cast"
+                       Text="Cast"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       Margin="20,0,0,0"
+                       Style="{StaticResource TextExtraLargeStyle}" />
+        </Border>
+
+        <toolkit:AdaptiveGridView Grid.Row="1"
+                                  OneRowModeEnabled="False"
+                                  DesiredWidth="350"
+                                  Margin="5"
+                                  SelectionMode="None"
+                                  IsItemClickEnabled="False"
+                                  ItemsSource="{Binding Cast, ElementName=Page}"
+                                  ItemTemplate="{StaticResource DesktopCastItemTemplate}" />
+
+        <controls:LoadingIndicator Grid.Row="1"
+                                   IsRunning="{Binding IsLoading, ElementName=Page}"
+                                   d:IsHidden="True" />
+    </Grid>
+
+</Page>

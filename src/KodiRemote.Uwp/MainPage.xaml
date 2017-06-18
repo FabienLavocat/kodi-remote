@@ -46,7 +46,8 @@
 
     </Page.Resources>
 
-    <Grid x:Name="LayoutRoot">
+    <Grid Margin="0,-5,0,0"
+          x:Name="LayoutRoot">
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>

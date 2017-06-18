@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
+using KodiRemote.Core.Model;
 using KodiRemote.Core.Responses;
 using KodiRemote.Uwp.Core;
 using Windows.ApplicationModel.Resources;
@@ -26,14 +29,14 @@ namespace KodiRemote.Uwp.Movies
 
         #region Movies
 
-        public List<ExtendedVideoDetailsMovie> Movies
+        public ObservableCollection<ExtendedVideoDetailsMovie> Movies
         {
-            get { return (List<ExtendedVideoDetailsMovie>)GetValue(MoviesProperty); }
+            get { return (ObservableCollection<ExtendedVideoDetailsMovie>)GetValue(MoviesProperty); }
             private set { SetValue(MoviesProperty, value); }
         }
 
         public static readonly DependencyProperty MoviesProperty =
-            DependencyProperty.Register(nameof(Movies), typeof(List<ExtendedVideoDetailsMovie>), typeof(PageMovies), new PropertyMetadata(null));
+            DependencyProperty.Register(nameof(Movies), typeof(ObservableCollection<ExtendedVideoDetailsMovie>), typeof(PageMovies), new PropertyMetadata(null));
 
         #endregion
 
@@ -59,17 +62,29 @@ namespace KodiRemote.Uwp.Movies
                 statusbar.BackgroundOpacity = 1;
                 statusbar.ForegroundColor = Windows.UI.Colors.White;
             }
-            
+
             if (!App.Context.DownloadThumbnails)
             {
                 LstMovies.ItemTemplate = Application.Current.Resources["MovieItemTemplateFlat"] as DataTemplate;
             }
 
+            Movies = new ObservableCollection<ExtendedVideoDetailsMovie>();
+            await LoadMoviesAsync(false);
+        }
+
+        private async Task LoadMoviesAsync(bool recentlyAdded)
+        {
             IsLoading = true;
+            Movies.Clear();
 
             try
             {
-                MoviesResponse movies = await App.Context.Connection.Kodi.VideoLibrary.GetMoviesAsync();
+                MoviesResponse movies;
+                if (recentlyAdded)
+                    movies = await App.Context.Connection.Kodi.VideoLibrary.GetRecentlyAddedMoviesAsync();
+                else
+                    movies = await App.Context.Connection.Kodi.VideoLibrary.GetMoviesAsync();
+
                 if (movies.Movies == null || !movies.Movies.Any())
                 {
                     var dialog = new MessageDialog(_resourceLoader.GetString("/movies/NoMovies"), _resourceLoader.GetString("ApplicationTitle"));
@@ -80,8 +95,11 @@ namespace KodiRemote.Uwp.Movies
 
                     return;
                 }
-
-                Movies = movies.Movies.Select(s => new ExtendedVideoDetailsMovie(s, false)).OrderBy(m => m.Movie.Title).ToList();
+                
+                foreach (var movie in movies.Movies.OrderBy(m => m.SortTitle))
+                {
+                    Movies.Add(new ExtendedVideoDetailsMovie(movie, false));
+                }
             }
             catch (Exception ex)
             {
@@ -94,7 +112,15 @@ namespace KodiRemote.Uwp.Movies
                 IsLoading = false;
             }
         }
-        
+
+        private void Movies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var movie = e.AddedItems.FirstOrDefault() as ExtendedVideoDetailsMovie;
+            if (movie == null) return;
+
+            Frame.Navigate(typeof(PageMovie), $"{movie.Movie.MovieId}|{movie.Movie.Title}");
+        }
+
         private void LstMovies_ItemClick(object sender, ItemClickEventArgs e)
         {
             var movie = e.ClickedItem as ExtendedVideoDetailsMovie;
@@ -103,25 +129,41 @@ namespace KodiRemote.Uwp.Movies
             Helpers.Vibrate();
             Frame.Navigate(typeof(PageMovie), $"{movie.Movie.MovieId}|{movie.Movie.Title}");
         }
-        
+
         private void SortByYear_Click(object sender, RoutedEventArgs e)
         {
-            Movies = Movies.OrderByDescending(m => m.Movie.Year).ToList();
+            var movies = Movies.OrderByDescending(m => m.Movie.Year).ToList();
+            Movies.Clear();
+            foreach (var movie in movies)
+            {
+                Movies.Add(movie);
+            }
         }
 
         private void SortByTitle_Click(object sender, RoutedEventArgs e)
         {
-            Movies = Movies.OrderBy(m => m.Movie.Title).ToList();
+            var movies = Movies.OrderBy(m => m.Movie.Title).ToList();
+            Movies.Clear();
+            foreach (var movie in movies)
+            {
+                Movies.Add(movie);
+            }
         }
 
-        private void RecentlyAdded_Click(object sender, RoutedEventArgs e)
+        private async void RecentlyAdded_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(PageRecentlyAdded));
+            RecentlyAddedCommandButton.Visibility = Visibility.Collapsed;
+            AllMoviesCommandButton.Visibility = Visibility.Visible;
+
+            await LoadMoviesAsync(true);
         }
 
-        private void Remote_Click(object sender, RoutedEventArgs e)
+        private async void AllMovies_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(PageRemote));
+            RecentlyAddedCommandButton.Visibility = Visibility.Visible;
+            AllMoviesCommandButton.Visibility = Visibility.Collapsed;
+
+            await LoadMoviesAsync(false);
         }
     }
 }

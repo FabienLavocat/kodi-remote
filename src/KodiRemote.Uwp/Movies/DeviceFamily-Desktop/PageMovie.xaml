@@ -20,14 +20,13 @@
                 BorderBrush="#22000000"
                 BorderThickness="0,0,0,2"
                 Margin="0,0,0,-2"
-                Padding="10">
+                Padding="15">
 
             <TextBlock Text="{Binding MovieTitle, FallbackValue=(Movie Title)}"
-                       HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        Foreground="White"
-                       FontFamily="{StaticResource PhoneFontFamilySemiLight}"
-                       FontSize="28" />
+                       Margin="20,0,0,0"
+                       Style="{StaticResource TextExtraLargeStyle}" />
         </Border>
 
         <ScrollViewer Grid.Row="1">
@@ -40,38 +39,54 @@
                     </Image.Source>
                 </Image>
 
-                <Image Margin="30,10,30,0"
-                       Width="200">
-                    <Image.Source>
-                        <BitmapImage UriSource="{Binding ImageUrl, FallbackValue=ms-appx:///Assets/Default/movie.png}" />
-                    </Image.Source>
-                </Image>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-                <StackPanel Background="#EFEFF4">
-                    <!-- INFORMATION -->
-                    <StackPanel Margin="0,0,2,0">
+                    <Border Grid.ColumnSpan="2"
+                            BorderBrush="#BFBFBF"
+                            BorderThickness="0,1"
+                            Background="White"
+                            Margin="10,0,0,0" />
+
+                    <Image Margin="10,-200,0,0"
+                           Width="280"
+                           HorizontalAlignment="Left">
+                        <Image.Source>
+                            <BitmapImage UriSource="{Binding ImageUrl, FallbackValue=ms-appx:///Assets/Default/movie.png}" />
+                        </Image.Source>
+                    </Image>
+
+                    <StackPanel Grid.Column="1"
+                                Margin="10">
                         <TextBlock x:Uid="/movies/SummaryCaps"
                                    Text="SUMMARY"
-                                   Margin="20,20,0,10"
                                    Foreground="#6D6D72" />
 
-                        <Border BorderBrush="#BFBFBF"
-                                BorderThickness="0,1,0,1"
-                                Background="White"
-                                Padding="20,8">
-                            <TextBlock Grid.Column="1"
-                                           Style="{StaticResource SmallDarkTextBoxStyle}"
-                                           TextWrapping="Wrap"
-                                           Text="{Binding Movie.Movie.Plot, FallbackValue=This is the summary of the movie}" />
-                        </Border>
+                        <TextBlock Style="{StaticResource SmallDarkTextBoxStyle}"
+                                   TextWrapping="Wrap"
+                                   Text="{Binding Movie.Movie.Plot}" />
+                    </StackPanel>
+                </Grid>
 
+                <Grid Padding="0,20,0,0"
+                      Background="#EFEFF4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- INFORMATION -->
+                    <StackPanel Margin="0,0,2,0">
                         <TextBlock x:Uid="/movies/InformationCaps"
                                    Text="INFORMATION"
-                                   Margin="20,20,0,10"
+                                   Margin="20,0,0,10"
                                    Foreground="#6D6D72" />
 
                         <Border BorderBrush="#BFBFBF"
-                                BorderThickness="0,1,0,1"
+                                BorderThickness="0,1,1,1"
                                 Background="White"
                                 Padding="20,8">
                             <Grid>
@@ -94,7 +109,7 @@
                         </Border>
 
                         <Border BorderBrush="#BFBFBF"
-                                BorderThickness="0,0,0,1"
+                                BorderThickness="0,0,1,1"
                                 Background="White"
                                 Padding="20,8">
                             <Grid>
@@ -117,7 +132,7 @@
                         </Border>
 
                         <Border BorderBrush="#BFBFBF"
-                                BorderThickness="0,0,0,1"
+                                BorderThickness="0,0,1,1"
                                 Background="White"
                                 Padding="20,8">
                             <Grid>
@@ -140,7 +155,7 @@
                         </Border>
 
                         <Border BorderBrush="#BFBFBF"
-                                BorderThickness="0,0,0,1"
+                                BorderThickness="0,0,1,1"
                                 Background="White"
                                 Padding="20,8">
                             <Grid>
@@ -163,7 +178,7 @@
                         </Border>
 
                         <Border BorderBrush="#BFBFBF"
-                                BorderThickness="0,0,0,1"
+                                BorderThickness="0,0,1,1"
                                 Background="White"
                                 Padding="20,8">
                             <Grid>
@@ -195,7 +210,7 @@
                         </Border>
 
                         <Border BorderBrush="#BFBFBF"
-                                BorderThickness="0,0,0,1"
+                                BorderThickness="0,0,1,1"
                                 Background="White"
                                 Padding="20,8">
                             <Grid>
@@ -233,7 +248,7 @@
                                    Foreground="#6D6D72" />
 
                         <Button Style="{StaticResource HorizontalButtonStyle}"
-                                BorderThickness="0,1,0,1"
+                                BorderThickness="0,1,1,1"
                                 Click="CastButton_Click">
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -267,15 +282,20 @@
                                            VerticalAlignment="Center" />
                             </Grid>
                         </Button>
+                    </StackPanel>
 
-                        <!-- TRAILER -->
+                    <!-- TRAILER -->
+                    <StackPanel Grid.Column="1"
+                                Margin="2,0,0,0"
+                                Visibility="{Binding TrailerVisibility}">
+
                         <TextBlock x:Uid="/movies/TrailerCaps"
                                    Text="TRAILER"
-                                   Margin="20,20,0,10"
+                                   Margin="20,0,0,10"
                                    Foreground="#6D6D72" />
 
                         <Border BorderBrush="#BFBFBF"
-                                BorderThickness="0,1,0,1"
+                                BorderThickness="1,1,0,1"
                                 Background="White">
 
                             <MediaPlayerElement x:Name="MediaPlayer"
@@ -296,7 +316,7 @@
                             </MediaPlayerElement>
                         </Border>
                     </StackPanel>
-                </StackPanel>
+                </Grid>
 
             </StackPanel>
 

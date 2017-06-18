@@ -127,9 +127,6 @@
     <Compile Include="Movies\PageMovies.xaml.cs">
       <DependentUpon>PageMovies.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Movies\PageRecentlyAdded.xaml.cs">
-      <DependentUpon>PageRecentlyAdded.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Musics\PageAlbum.xaml.cs">
       <DependentUpon>PageAlbum.xaml</DependentUpon>
     </Compile>
@@ -144,6 +141,9 @@
     </Compile>
     <Compile Include="PageAbout.xaml.cs">
       <DependentUpon>PageAbout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageCast.xaml.cs">
+      <DependentUpon>PageCast.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageRemote.xaml.cs">
       <DependentUpon>PageRemote.xaml</DependentUpon>
@@ -206,6 +206,7 @@
     <Content Include="Assets\Default\DefaultMovieSmall.png" />
     <Content Include="Assets\Default\DefaultTvShow.png" />
     <Content Include="Assets\Default\DefaultVideo.png" />
+    <Content Include="Assets\Default\movie.png" />
     <Content Include="Assets\facebook.png" />
     <Content Include="Assets\github.png" />
     <Content Include="Assets\MainMenu\appbar.camera.png" />
@@ -286,6 +287,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DeviceFamily-Desktop\PageCast.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Movies\DeviceFamily-Desktop\PageMovie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Movies\DeviceFamily-Desktop\PageMovies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageAddons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -334,10 +347,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Movies\PageRecentlyAdded.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Musics\PageAlbum.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -355,6 +364,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageAbout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageCast.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -388,6 +401,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="Resources\LongListSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Resources\MediaPlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -441,7 +459,7 @@
       <Version>2.5.16</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>10.0.2</Version>
+      <Version>10.0.3</Version>
     </PackageReference>
     <PackageReference Include="Win2D.uwp">
       <Version>1.20.0</Version>

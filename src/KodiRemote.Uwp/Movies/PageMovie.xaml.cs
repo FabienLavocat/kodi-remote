@@ -10,8 +10,11 @@ using MyToolkit.Multimedia;
 using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.Core;
+using Windows.Media.Playback;
 using Windows.System;
 using Windows.UI.Popups;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -33,6 +36,8 @@ namespace KodiRemote.Uwp.Movies
             DataContext = this;
 
             _resourceLoader = ResourceLoader.GetForCurrentView();
+            
+            SizeChanged += PageMovie_SizeChanged;
         }
 
         #region MovieTitle
@@ -45,6 +50,19 @@ namespace KodiRemote.Uwp.Movies
 
         public static readonly DependencyProperty MovieTitleProperty =
             DependencyProperty.Register(nameof(MovieTitle), typeof(string), typeof(PageMovie), new PropertyMetadata(null));
+
+        #endregion
+
+        #region FanArt
+
+        public string FanArt
+        {
+            get { return (string)GetValue(FanArtProperty); }
+            private set { SetValue(FanArtProperty, value); }
+        }
+
+        public static readonly DependencyProperty FanArtProperty =
+            DependencyProperty.Register(nameof(FanArt), typeof(string), typeof(PageMovie), new PropertyMetadata(null));
 
         #endregion
 
@@ -191,6 +209,19 @@ namespace KodiRemote.Uwp.Movies
 
         #endregion
 
+        #region PlaybackList
+
+        public MediaPlaybackList PlaybackList
+        {
+            get { return (MediaPlaybackList)GetValue(PlaybackListProperty); }
+            private set { SetValue(PlaybackListProperty, value); }
+        }
+
+        public static readonly DependencyProperty PlaybackListProperty =
+            DependencyProperty.Register(nameof(PlaybackList), typeof(MediaPlaybackList), typeof(PageMovie), new PropertyMetadata(null));
+
+        #endregion
+
         #region IsLoading
 
         public bool IsLoading
@@ -203,14 +234,12 @@ namespace KodiRemote.Uwp.Movies
             DependencyProperty.Register(nameof(IsLoading), typeof(bool), typeof(PageMovie), new PropertyMetadata(false));
 
         #endregion
-
-        private string _youtubeId;
-
+        
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
             {
-                var statusbar = Windows.UI.ViewManagement.StatusBar.GetForCurrentView();
+                var statusbar = StatusBar.GetForCurrentView();
                 statusbar.BackgroundColor = new Windows.UI.Color() { R = 153, G = 122, B = 165 };
                 statusbar.BackgroundOpacity = 1;
                 statusbar.ForegroundColor = Windows.UI.Colors.White;
@@ -229,7 +258,7 @@ namespace KodiRemote.Uwp.Movies
                 var movie = await App.Context.Connection.Kodi.VideoLibrary.GetMovieDetailsAsync(int.Parse(id));
                 Movie = new ExtendedVideoDetailsMovie(movie, false);
 
-                foreach (var cast in movie.Cast.Take(5))
+                foreach (var cast in movie.Cast)
                     Cast.Add(new ExtendedVideoCast(cast));
 
                 Genres = Helpers.Combine(movie.Genre);
@@ -251,8 +280,12 @@ namespace KodiRemote.Uwp.Movies
                         Match match = regex.Match(Movie.Movie.Trailer);
                         if (match.Groups["youtubeId"].Success)
                         {
-                            _youtubeId = match.Groups["youtubeId"].Value;
-                            ImageTrailer = YouTube.GetThumbnailUri(_youtubeId);
+                            string youtubeId = match.Groups["youtubeId"].Value;
+                            ImageTrailer = YouTube.GetThumbnailUri(youtubeId);
+
+                            var urlTrailer = await YouTube.GetVideoUriAsync(youtubeId, YouTubeQuality.Quality1080P);
+                            PlaybackList = new MediaPlaybackList();
+                            PlaybackList.Items.Add(new MediaPlaybackItem(MediaSource.CreateFromUri(urlTrailer.Uri)));
                         }
                     }
                 }
@@ -268,24 +301,13 @@ namespace KodiRemote.Uwp.Movies
                 IsLoading = false;
             }
 
-            if (Movie?.Movie != null && !string.IsNullOrWhiteSpace(Movie.Movie.Thumbnail))
+            if (!string.IsNullOrWhiteSpace(Movie?.Movie?.Thumbnail))
                 ImageUrl = await Helpers.LoadImageUrl(Movie.Movie.Thumbnail);
+
+            if (!string.IsNullOrWhiteSpace(Movie?.Movie?.FanArt))
+                FanArt = await Helpers.LoadImageUrl(Movie.Movie.FanArt);
         }
-
-        private async void PlayTrailer(object sender, TappedRoutedEventArgs e)
-        {
-            var dico = new Dictionary<string, string>
-                       {
-                           {"Youtube ID", _youtubeId},
-                           {"Movie Title", Movie.Movie.Title}
-                       };
-
-            Helpers.Vibrate();
-
-            var uri = await YouTube.GetVideoUriAsync(_youtubeId, YouTubeQuality.Quality1080P);
-            await Launcher.LaunchUriAsync(uri.Uri);
-        }
-
+        
         public async void PlayButton_Click(object sender, RoutedEventArgs e)
         {
             IsLoading = true;
@@ -297,7 +319,7 @@ namespace KodiRemote.Uwp.Movies
 
         public async void ImdbButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Movie == null || Movie.Movie.ImdbNumber == null) return;
+            if (Movie?.Movie.ImdbNumber == null) return;
 
             string url = string.Concat("http://www.imdb.com/title/", Movie.Movie.ImdbNumber);
             await Launcher.LaunchUriAsync(new Uri(url, UriKind.Absolute));
@@ -306,15 +328,32 @@ namespace KodiRemote.Uwp.Movies
         public void CastButton_Click(object sender, RoutedEventArgs e)
         {
             if (Movie == null) return;
-
-            //string url = string.Concat("/PageCast.xaml?id=", Movie.Movie.MovieId, "&type=movie");
-
-            //NavigationService.Navigate(new Uri(url, UriKind.Relative));
+            
+            Frame.Navigate(typeof(PageCast), $"{Movie.Movie.MovieId}|movie");
         }
 
         public void RemoteButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(PageRemote));
+        }
+
+        private void MediaPlayer_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            if (sender is MediaPlayerElement mediaPlayer)
+            {
+                mediaPlayer.IsFullWindow = !mediaPlayer.IsFullWindow;
+            }
+        }
+
+        private void MediaPlayer_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == VirtualKey.Escape)
+                MediaPlayer.IsFullWindow = false;
+        }
+
+        private void PageMovie_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            Page.BottomAppBar.Visibility = MediaPlayer.IsFullWindow ? Visibility.Collapsed : Visibility.Visible;
         }
 
         //private void DownloadButton_Click(object sender, RoutedEventArgs e)

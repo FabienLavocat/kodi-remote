@@ -229,4 +229,40 @@
         </Setter>
     </Style>
 
+    <DataTemplate x:Key="DesktopCastItemTemplate">
+        <Border BorderBrush="#D9D9D9"
+                BorderThickness="1"
+                Background="White">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Image Margin="10"
+                       Width="75"
+                       Stretch="UniformToFill">
+                    <Image.Source>
+                        <BitmapImage UriSource="{Binding Thumbnail}" />
+                    </Image.Source>
+                </Image>
+
+                <StackPanel Grid.Column="1"
+                            VerticalAlignment="Center">
+                    <TextBlock Text="{Binding Value.Name}"
+                               Foreground="#333333"
+                               FontSize="24"
+                               FontFamily="{StaticResource FontFamilyBold}"
+                               TextWrapping="WrapWholeWords" />
+
+                    <TextBlock Text="{Binding Value.Role}"
+                               Foreground="#555555"
+                               FontSize="20"
+                               FontFamily="{StaticResource FontFamilyNormal}"
+                               TextWrapping="WrapWholeWords" />
+                </StackPanel>
+            </Grid>
+        </Border>
+    </DataTemplate>
+
 </ResourceDictionary>

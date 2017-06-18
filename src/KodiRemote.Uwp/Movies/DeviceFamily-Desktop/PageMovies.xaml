@@ -4,15 +4,40 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:movies="using:KodiRemote.Uwp.Movies"
       xmlns:controls="using:KodiRemote.Uwp.Controls"
+      xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d"
       d:DataContext="{d:DesignInstance movies:PageMovies}">
 
     <Page.Resources>
-        <Style TargetType="GridViewItem">
-            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        </Style>
+
+        <DataTemplate x:Key="MovieItemTemplate">
+            <Grid>
+                <Image Stretch="Fill">
+                    <Image.Source>
+                        <BitmapImage UriSource="{Binding Thumbnail}" />
+                    </Image.Source>
+                </Image>
+
+                <Border Background="#8ED43D"
+                        Height="32"
+                        Width="32"
+                        CornerRadius="32"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Margin="5"
+                        Visibility="{Binding Movie.IsWatched, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}"
+                               Text="&#xE10B;"
+                               Foreground="White"
+                               FontSize="22"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" />
+                </Border>
+            </Grid>
+        </DataTemplate>
+
     </Page.Resources>
 
     <Grid Background="#EFEFF4">
@@ -25,32 +50,26 @@
                 BorderBrush="#22000000"
                 BorderThickness="0,0,0,2"
                 Margin="0,0,0,-2"
-                Padding="10">
+                Padding="15">
 
             <TextBlock x:Uid="/movies/MoviesTitle"
                        Text="Movies"
-                       HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        Foreground="White"
-                       FontFamily="{StaticResource PhoneFontFamilySemiLight}"
-                       FontSize="28" />
+                       Margin="20,0,0,0"
+                       Style="{StaticResource TextExtraLargeStyle}" />
         </Border>
 
-        <GridView Grid.Row="1"
-                  x:Name="LstMovies"
-                  ItemsSource="{Binding Movies, ElementName=Page}"
-                  ItemClick="LstMovies_ItemClick"
-                  Style="{StaticResource MoviesGridViewStyle}"
-                  ItemTemplate="{StaticResource MovieItemTemplate}"
-                  SelectionMode="None"
-                  IsItemClickEnabled="True">
-            <GridView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <ItemsWrapGrid Orientation="Horizontal"
-                                   MaximumRowsOrColumns="3" />
-                </ItemsPanelTemplate>
-            </GridView.ItemsPanel>
-        </GridView>
+        <toolkit:AdaptiveGridView Grid.Row="1"
+                                  x:Name="LstMovies"
+                                  OneRowModeEnabled="False"
+                                  ItemHeight="300"
+                                  DesiredWidth="205"
+                                  SelectionMode="Single"
+                                  IsItemClickEnabled="True"
+                                  ItemsSource="{Binding Movies, ElementName=Page}"
+                                  ItemTemplate="{StaticResource MovieItemTemplate}"
+                                  SelectionChanged="Movies_SelectionChanged" />
 
         <controls:LoadingIndicator Grid.Row="1"
                                    IsRunning="{Binding IsLoading, ElementName=Page}"
@@ -59,8 +78,7 @@
     </Grid>
 
     <Page.BottomAppBar>
-        <CommandBar Background="White"
-                    Foreground="Black">
+        <CommandBar>
             <AppBarButton x:Uid="/movies/CommandSort"
                           Label="Sort"
                           Icon="Sort">
