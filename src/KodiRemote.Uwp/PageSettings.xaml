@@ -4,18 +4,19 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:controls="using:KodiRemote.Uwp.Controls"
+      xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
       Foreground="#6D6D72"
       mc:Ignorable="d">
 
-    <Grid Margin="0,-1,0,0">
-        <Grid.Background>
-            <ImageBrush ImageSource="/Assets/welcome.small.png"
-                        Stretch="None" />
-        </Grid.Background>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
+        <toolkit:TileControl Grid.RowSpan="2"
+                             IsAnimated="False"
+                             ImageSource="ms-appx:///Assets/welcome.small.png" />
 
         <Border Background="#383A3B"
                 BorderBrush="#22000000"

@@ -32,7 +32,7 @@ namespace KodiRemote.Uwp
                 },
                 new NavMenuItem()
                 {
-                    Symbol = Symbol.Edit,
+                    Symbol = Symbol.Video,
                     Label = "Movies",
                     DestPage = typeof(PageMovies)
                 },
@@ -50,7 +50,7 @@ namespace KodiRemote.Uwp
                 },
                 new NavMenuItem()
                 {
-                    Symbol = Symbol.MusicInfo,
+                    Symbol = Symbol.Bullets,
                     Label = "Playlists",
                     DestPage = typeof(PageAbout)
                 },
