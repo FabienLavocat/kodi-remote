@@ -89,6 +89,7 @@
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Converters\ShorterStringConverter.cs" />
     <Compile Include="PageAddons.xaml.cs">
       <DependentUpon>PageAddons.xaml</DependentUpon>
     </Compile>
@@ -164,12 +165,19 @@
     <Compile Include="AppSettings\PageAppSettings.xaml.cs">
       <DependentUpon>PageAppSettings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TvShows\PageTvShow.xaml.cs">
+      <DependentUpon>PageTvShow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TvShows\PageTvShows.xaml.cs">
+      <DependentUpon>PageTvShows.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="KodiRemote.Uwp_TemporaryKey.pfx" />
+    <PRIResource Include="Strings\en-US\tvshows.resw" />
     <PRIResource Include="Strings\en-US\musics.resw" />
     <PRIResource Include="Strings\en-US\movies.resw">
       <SubType>Designer</SubType>
@@ -447,6 +455,11 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
+    <Page Include="Resources\TvShows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
     <Page Include="Resources\Welcome.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -458,6 +471,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="AppSettings\PageAppSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TvShows\PageTvShow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TvShows\PageTvShows.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -493,9 +514,7 @@
       <Name>Windows Mobile Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TvShows\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

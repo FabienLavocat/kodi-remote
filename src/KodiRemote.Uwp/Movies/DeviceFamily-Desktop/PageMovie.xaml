@@ -33,7 +33,9 @@
 
             <StackPanel Margin="0,0,0,20">
 
-                <Image an:ParallaxService.VerticalMultiplier="-0.5">
+                <Image an:ParallaxService.VerticalMultiplier="-0.5"
+                       MaxHeight="400"
+                       Stretch="UniformToFill">
                     <Image.Source>
                         <BitmapImage UriSource="{Binding FanArt}" />
                     </Image.Source>
